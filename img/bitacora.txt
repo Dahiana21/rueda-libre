@@ -1,0 +1,26 @@
+URL completa:http://127.0.0.1:5500/index.html
+Protocolo: http
+Host: 127.0.0.1
+Puerto: 5500
+Ruta: /index.html
+Metodo: GET
+Estado: 304
+
+Ruta no existente (/promociones.html)
+URL completa:http://127.0.0.1:5500//promociones.html
+Protocolo: http
+Host: 127.0.0.1
+Puerto: 5500
+Ruta: /promociones.html
+Metodo: GET
+Estado: 404 Not Found
+Mensaje: "Cannot GET //promociones.html"
+
+Roles en el sitio Rueda Libre
+HTML: Es quien nos da la estructura de nuestra página web ayudandonos a definir cosas
+como por ejemplo, el titulo, el contenido, imagenes, etc...
+CSS: Es quien nos aporta toda la parte estetica define los colores, las tipografías, el espaciado y la disposición de los elementos 
+creados con HTML para que el sitio sea atractivo visualmente, por ejemplo el color del texto, el color de fondo, etc..
+JavaScript: ermite que el sitio responda a las acciones del usuario en tiempo real, 
+modifique el contenido dinámicamente sin recargar la página y maneje la lógica del negocio, como por ejemplo al dar clic en 
+un boton si haga la función.
