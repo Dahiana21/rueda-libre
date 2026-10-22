@@ -24,3 +24,32 @@ creados con HTML para que el sitio sea atractivo visualmente, por ejemplo el col
 JavaScript: ermite que el sitio responda a las acciones del usuario en tiempo real, 
 modifique el contenido dinámicamente sin recargar la página y maneje la lógica del negocio, como por ejemplo al dar clic en 
 un boton si haga la función.
+
+Esquema semántico para el index
+Header (Logo y nombre de Rueda libre)
+Nav (Inicio, Tarifas, Reservas)
+Main (contenido principal del Inicio)
+Section 1 - quienes somos (descripción e imagen)
+Section 2 - Servicios, en este cada uno sera un articulo
+2.1 article - alquiler de bicicletas
+2.2 article - recorridos guiados
+2.3 article - taller basico
+Section 3 - Pasos para alquilar (lista ordenada de paso y enlace para reservar)
+Section 4 - beneficios (lista de beneficios)
+Footer (Contacto, telefono, correo y derechos reservados)
+
+Esquema semántico para Tarifas
+Header (Logo y nombre de Rueda libre)
+Nav (Inicio, Tarifas, Reservas)
+Main (contenido principal del Inicio)
+Section 1- Tarifas de alquiler (tabla de precios y enlace para reservar)
+Section 2 - Recorridos guiados (tabla de recorridos)
+Aside - información complementaria (horarios, recomendaciones y lista de que llevar)
+Footer (Contacto, telefono, correo y derechos reservados)
+
+Esquema semántico para Reservas
+Header (Logo y nombre de Rueda libre)
+Nav (Inicio, Tarifas, Reservas)
+Main (contenido principal del Inicio)
+Section 1 - Horarios de atención
+Footer (Contacto, telefono, correo y derechos reservados)
