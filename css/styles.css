@@ -14,6 +14,13 @@
     --espacio-extra-grande: 3rem;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
 body {
     font-family: var(--fuente-texto);
     font-weight: 400;
@@ -211,4 +218,132 @@ main a:not(.boton-principal):focus {
     color: var(--azul-noche);
     outline: 3px solid var(--azul-noche);
     outline-offset: 3px;
+}
+
+main {
+    width: 100%;
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: var(--espacio-grande);
+}
+
+#quienes-somos {
+    min-height: 50vh;
+}
+
+#quienes-somos img {
+    max-width: 100%;
+    height: auto;
+}
+
+#servicios {
+    margin-bottom: var(--espacio-grande);
+}
+
+#servicios article {
+    width: 100%;
+    padding: var(--espacio-grande);
+    border: 2px solid var(--verde-ruta);
+    border-radius: 1rem;
+    margin-bottom: var(--espacio-mediano);
+    background-color: var(--crema);
+}
+
+#servicios article h3 {
+    margin-top: 0;
+    margin-bottom: var(--espacio-mediano);
+}
+
+#servicios article img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: var(--espacio-mediano);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--espacio-grande);
+}
+
+th,
+td {
+    padding: var(--espacio-mediano);
+    border: 1px solid var(--gris-asfalto);
+    text-align: left;
+}
+
+thead th {
+    background-color: var(--azul-noche);
+    color: var(--crema);
+    font-weight: 600;
+}
+
+tbody th {
+    background-color: var(--crema);
+    color: var(--azul-noche);
+    font-weight: 600;
+}
+
+caption {
+    color: var(--azul-noche);
+    font-weight: 600;
+    text-align: left;
+    padding-bottom: var(--espacio-pequeno);
+}
+
+form fieldset {
+    padding: var(--espacio-grande);
+    margin-bottom: var(--espacio-grande);
+    border: 2px solid var(--verde-ruta);
+    border-radius: 1rem;
+    min-width: 0;
+}
+
+form legend {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--azul-noche);
+    padding: 0 var(--espacio-pequeno);
+}
+
+form p {
+    margin-bottom: var(--espacio-mediano);
+}
+
+form label {
+    display: block;
+    margin-bottom: var(--espacio-pequeno);
+    font-weight: 600;
+}
+
+form input:not([type="checkbox"]),
+form select,
+form textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: var(--espacio-mediano);
+}
+
+form input[type="checkbox"] {
+    display: inline-block;
+}
+
+form input[type="checkbox"] + label {
+    display: inline;
+    margin-bottom: 0;
+}
+
+form small {
+    display: block;
+    margin-top: var(--espacio-pequeno);
+    color: var(--gris-asfalto);
+}
+
+form button.boton-principal {
+    display: inline-block;
+    width: auto;
+    padding: var(--espacio-mediano) var(--espacio-grande);
 }

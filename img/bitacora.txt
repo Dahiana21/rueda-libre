@@ -249,4 +249,52 @@ se muestra un borde Azul Noche acompañado de un contorno Naranja Pedal.
 También se agregó un indicador de foco para la casilla de aceptación de políticas, permitiendo identificarla durante 
 la navegación con teclado.
 
+Modelo de caja
+Se aplicó la propiedad box-sizing: border-box a todos los elementos del sitio Rueda Libre mediante el selector universal.
+Esta propiedad permite que el ancho y alto establecidos incluyan el contenido, el relleno y los bordes, evitando que los elementos ocupen más espacio del definido.
 
+Ancho y altura del contenido 
+Se estableció un ancho máximo de 70rem para el contenido principal utilizando la propiedad max-width. 
+También se aplicó margin: 0 auto para centrar horizontalmente el contenido y una variable de espaciado para generar separación con los bordes.
+En la página Inicio se estableció una altura mínima de 50vh para la sección «¿Quiénes somos?», permitiendo que la portada mantenga 
+una presencia visual proporcional a la altura de la ventana.
+Finalmente, se aplicó max-width: 100% y height: auto a la imagen de portada para evitar desbordamientos y conservar sus proporciones.
+
+Modelo de caja en las tablas
+Se mejoró la presentación de las tablas de la página Tarifas utilizando propiedades del modelo de caja de CSS.
+Se aplicó width: 100% para aprovechar el espacio disponible, padding para separar el contenido de los bordes y margin-bottom 
+para generar espacio entre las tablas y los demás elementos.
+También se utilizó border-collapse: collapse para unificar los bordes de las celdas.
+Los encabezados se configuraron con fondo Azul Noche y texto Crema
+
+Organización del formulario
+Se mejoró la presentación del formulario de reservas utilizando propiedades del modelo de caja de CSS.
+Se aplicó padding y margin-bottom para separar los grupos y campos. Las etiquetas se organizaron encima de sus controles mediante 
+display: block, mientras que los campos se configuraron con width: 100% para aprovechar el espacio disponible.
+También se aumentó el relleno del botón de envío para facilitar su identificación y uso.
+
+Organización del menú
+Se utilizó la propiedad display: flex en el menú de navegación para organizar las opciones Inicio, Tarifas y Reservas horizontalmente.
+Se aplicó justify-content: center para centrar las opciones y gap con una variable de espaciado para mantener una separación uniforme.
+También se utilizó display: inline-block en los enlaces del menú para permitir el uso de relleno y mejorar su presentación.
+
+Comparación del Box Model
+Se realizó una prueba en DevTools de Google Chrome con la tarjeta «Alquiler de bicicletas» de Rueda Libre.
+Para realizar la comparación se utilizó un ancho de 20rem, un relleno de 2rem y un borde.
+
+width: 20rem;
+padding: 2rem;
+border: 2px solid green;
+box-sizing: content-box;
+
+y luego se cambio por box-sizing: border-box;
+
+Resultados obtenidos:
+Ancho total con content-box: 387.2 px.
+Ancho total con border-box: 320 px.
+
+Diferencia: 67.2 px.
+
+Conclusión:
+Con content-box, el navegador suma el padding y los bordes al ancho definido, aumentando el tamaño total de la tarjeta.
+Con border-box, el padding y los bordes se incluyen dentro del ancho establecido, permitiendo controlar mejor las dimensiones de los elementos de la página web.
