@@ -53,3 +53,134 @@ Nav (Inicio, Tarifas, Reservas)
 Main (contenido principal del Inicio)
 Section 1 - Horarios de atención
 Footer (Contacto, telefono, correo y derechos reservados)
+
+ACTIVIDAD EL FORMULARIO DE Reservas
+
+En la página de Reservas de Rueda Libre se creó un formulario HTML utilizando el método POST. 
+Se organizaron los campos en tres grupos con las etiquetas fieldset y legend: "Tus datos", "Tu alquiler" y "Confirmación".
+
+1. Correo electrónico (input type="email"): Se eligió porque permite que el navegador verifique que el dato ingresado tenga un formato 
+de correo electrónico válido.
+
+2. Tipo de bicicleta (select): Se utilizó una lista desplegable porque el cliente debe elegir entre opciones definidas: urbana, montaña o eléctrica. 
+Esto evita que escriba opciones diferentes a las disponibles.
+
+3. Aceptación de políticas (input type="checkbox"): Se eligió una casilla de verificación porque el usuario debe confirmar su aceptación 
+de las políticas de alquiler antes de enviar el formulario.
+
+También se utilizó la etiqueta label vinculada con cada campo mediante los atributos for e id, y el atributo name 
+para identificar cada dato durante el envío. Finalmente, se agregó un botón de tipo submit para enviar la información.
+
+Reservas sin errore, validación y teclado
+Se usaron validaciones nativas para garantizar que los usuarios ingresen correctamente sus datos
+Se utilizo el atributo required para identificar que campos son obligatorios
+Se utilizo minlenght para establecer una cantidad minima de caracteres 
+Se utilizo pattern para validar el formato del documento y del celular 
+Se utilizo min y max para limitar la fecha y tambien la cantidad de biciletas
+Se utilizo maxlenght en el campo de comentarios para los caracteres y se hizo obligatoria la aceptación
+de politicas
+Se utilizo inputmode y autocomplete para facilitar la entrada de datos desde los dispositivos moviles y teclados
+
+
+Revisar accesibilidad de la página
+1.texto blanco sobre Verde Ruta para botones y enlaces
+Contraste: 5.31:1
+Texto normal: apta
+Texto grande: apta
+Objetos graficos y componentes de interfaz: apta
+
+2.blanco sobre Naranja Pedal
+Contraste: 2.21:1
+Texto normal: NO apta
+Texto grande: NO apta
+Objetos graficos y componentes de interfaz: NO apta
+
+3.Azul Noche sobre Naranja Pedal
+Contraste: 7.2:1
+Texto normal: apta
+Texto grande: apta
+Objetos graficos y componentes de interfaz: apta
+
+4.Azul Noche sobre Crema
+Contraste: 14.82:1
+Texto normal: apta
+Texto grande: apta
+Objetos graficos y componentes de interfaz: apta
+
+5.Gris Asfalto sobre Crema
+Contraste: 5.56:1
+Texto normal: apta
+Texto grande: apta
+Objetos graficos y componentes de interfaz: apta
+
+6.Verde Ruta sobre Crema
+Contraste: 4.93:1
+Texto normal: apta
+Texto grande: apta
+Objetos graficos y componentes de interfaz: apta
+
+7.Naranja Pedal sobre Crema
+Contraste: 2.05:1
+Texto normal: NO apta
+Texto grande: NO apta
+Objetos graficos y componentes de interfaz: NO apta
+
+8.blanco sobre Azul Noche.
+Contraste: 15.97:1
+Texto normal: apta
+Texto grande: apta
+Objetos graficos y componentes de interfaz: apta
+
+MI MAPA DE USO DE COLOR 
+Fondos:
+Botones:
+Enlaces:
+Texto:
+
+Auditoria de las tres pantallas
+Página index - index.html
+Se revisaron los textos alternativos de las imágenes, la jerarquía de encabezados, los textos de los enlaces, el idioma del documento y la navegación mediante teclado.
+
+Hallazgo 1: El enlace "Reservar ahora" podía ser más específico.
+Corrección: Se cambió por "Reservar bicicleta ahora", permitiendo comprender su propósito fuera de contexto.
+
+Hallazgo 2: Era necesario comprobar que las imágenes tuvieran descripciones adecuadas.
+Verificación: El logo y las imágenes de portada y ruta cuentan con atributos alt.
+
+Hallazgo 3: Era necesario identificar correctamente el idioma y la estructura de encabezados.
+Verificación: Se confirmó que el documento utiliza lang="es" y una jerarquía organizada mediante h1, h2 y h3.
+
+Hallazgo 4: Era necesario facilitar el acceso al contenido principal desde el teclado.
+Verificación: La página incluye un enlace "Saltar al contenido principal" y un identificador en main, además del atributo aria-current="page" en el menú.
+
+Página Tarifas - tarifas.html
+No existía un enlace para saltar el menú	Se agregó «Saltar al contenido principal».
+El menú no identificaba la página actual	Se agregó aria-current="page" a Tarifas.
+Las tablas no tenían descripciones	Se agregó <caption> a cada tabla.
+Se podía mejorar el texto «Reservar ahora»	Se cambió por «Reservar bicicleta ahora».
+Era necesario comprobar el idioma	Se verificó lang="es".
+Era necesario revisar la jerarquía de encabezados	Se conservaron los niveles h1, h2 y h3.
+
+Se identificó que las tablas no tenían una descripción de su contenido, por lo que se agregó la etiqueta caption a cada una. 
+También se incorporó un enlace para saltar directamente al contenido principal y se utilizó aria-current="page" para identificar la página de Tarifas dentro del menú.
+Se mejoró el texto del enlace de reservas para que fuera más descriptivo, manteniendo su destino original. 
+Además, se comprobó que el documento utiliza lang="es" y que las tablas emplean correctamente scope="col" y scope="row".
+
+Página Reservas - reservas.html
+lang="es"	Indica que la página está en español.
+Enlace para saltar al contenido	Facilita la navegación con teclado.
+aria-current="page"	Identifica Reservas como la página actual.
+aria-describedby	Relaciona cada campo con sus instrucciones.
+<small>	Muestra ayudas para completar los campos correctamente.
+Asteriscos *	Permiten reconocer los campos obligatorios.
+<label>	Asocia cada campo con su nombre.
+<fieldset> y <legend>	Organizan el formulario en tres grupos.
+
+Hallazgos la falta de instrucciones visibles en ciertos campos, la ausencia de identificación de la página actual y la necesidad de facilitar el acceso directo al contenido.
+
+Navegación con teclado
+Se estableció como prueba recorrer las tres páginas utilizando Tab para avanzar, Shift + Tab para retroceder y Enter para entrar. 
+En el formulario de Reservas también se comprobará la selección de opciones mediante el teclado,
+la aceptación de políticas y el acceso al botón de envío.
+
+Resultado: Funciona perfectamente la navegación por teclado.

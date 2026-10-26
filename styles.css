@@ -1,0 +1,165 @@
+
+/* Paleta de colores Rueda Libre */
+
+:root {
+    --verde-ruta: #1E7A4F;
+    --naranja-pedal: #F39A2B;
+    --azul-noche: #14213D;
+    --crema: #FAF6EF;
+    --gris-asfalto: #5B6470;
+}
+
+/* Estilos generales */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--crema);
+    color: var(--azul-noche);
+}
+
+/* Encabezado */
+
+header {
+    background-color: var(--azul-noche);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Navegación */
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+}
+
+nav a[aria-current="page"] {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 5px;
+}
+
+/* Contenido principal */
+
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+article {
+    margin-bottom: 20px;
+}
+
+h2,
+h3 {
+    color: var(--azul-noche);
+}
+
+/* Enlaces */
+
+main a {
+    color: var(--verde-ruta);
+    text-decoration: underline;
+}
+
+/* Botón principal */
+
+.boton-principal {
+    display: inline-block;
+    background-color: var(--verde-ruta);
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+main a.boton-principal {
+    color: white;
+}
+
+/* Imágenes */
+
+main img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Pie de página */
+
+footer {
+    background-color: var(--azul-noche);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer a {
+    color: white;
+}
+
+footer h2,
+footer h3 {
+    color: white;
+}
+
+/* Accesibilidad del teclado */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--naranja-pedal);
+    outline-offset: 4px;
+}
+
+/* Enlace para saltar al contenido */
+
+.saltar-contenido {
+    position: absolute;
+    left: -9999px;
+    top: 10px;
+    background-color: var(--azul-noche);
+    color: white;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.saltar-contenido:focus {
+    left: 10px;
+}
+
+/* Adaptación a pantallas pequeñas */
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    main {
+        padding: 15px;
+    }
+}
