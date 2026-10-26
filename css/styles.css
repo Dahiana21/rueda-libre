@@ -5,17 +5,14 @@
     --crema: #FAF6EF;
     --gris-asfalto: #5B6470;
 
-
     --fuente-titulos: 'Montserrat', Arial, sans-serif;
     --fuente-texto: 'Open Sans', Arial, sans-serif;
-
 
     --espacio-pequeno: 0.5rem;
     --espacio-mediano: 1rem;
     --espacio-grande: 2rem;
     --espacio-extra-grande: 3rem;
 }
-
 
 body {
     font-family: var(--fuente-texto);
@@ -24,13 +21,11 @@ body {
     background-color: var(--crema);
 }
 
-
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--fuente-titulos);
     font-weight: 700;
     color: var(--azul-noche);
 }
-
 
 strong {
     font-weight: 600;
@@ -47,16 +42,63 @@ header {
     padding: var(--espacio-grande);
 }
 
-
 header h1 {
     color: var(--crema);
 }
 
-
-nav a {
-    color: var(--crema);
+#menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--espacio-mediano);
+    list-style: none;
+    padding: 0;
 }
 
+/*
+   CONFLICTO ORIGINAL DEL MINIRETO 10
+
+   #menu a {
+       color: var(--gris-asfalto);
+   }
+
+   .activo {
+       color: var(--verde-ruta);
+       font-weight: 600;
+   }
+
+   #menu a tiene mayor especificidad
+   que .activo.
+*/
+
+#menu a {
+    display: inline-block;
+    color: var(--crema);
+    padding: var(--espacio-pequeno);
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+#menu a.activo {
+    color: var(--azul-noche);
+    background-color: var(--naranja-pedal);
+    font-weight: 600;
+}
+
+
+#menu a:hover {
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
+    text-decoration: underline;
+}
+
+#menu a:focus {
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
+    outline: 3px solid var(--crema);
+    outline-offset: 3px;
+    text-decoration: underline;
+}
 
 footer {
     background-color: var(--azul-noche);
@@ -64,37 +106,109 @@ footer {
     padding: var(--espacio-grande);
 }
 
-
 footer h2,
 footer h3 {
     color: var(--crema);
 }
 
-
 footer a {
     color: var(--crema);
 }
-
 
 .boton-principal {
     display: inline-block;
     background-color: var(--verde-ruta);
     color: var(--crema);
     padding: var(--espacio-mediano);
-    font-weight: 600;
+    border: 2px solid var(--verde-ruta);
+    border-radius: 8px;
     text-decoration: none;
-    border: none;
+    font-family: var(--fuente-texto);
+    font-weight: 600;
     cursor: pointer;
 }
 
+.boton-principal:hover {
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
+    border-color: var(--naranja-pedal);
+    text-decoration: underline;
+}
+
+.boton-principal:focus {
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
+    border-color: var(--azul-noche);
+    outline: 3px solid var(--azul-noche);
+    outline-offset: 3px;
+    text-decoration: underline;
+}
 
 .boton-secundario {
     display: inline-block;
     background-color: var(--naranja-pedal);
     color: var(--azul-noche);
     padding: var(--espacio-mediano);
-    font-weight: 600;
+    border-radius: 8px;
     text-decoration: none;
-    border: none;
+    font-weight: 600;
     cursor: pointer;
+}
+
+.boton-secundario:hover,
+.boton-secundario:focus {
+    background-color: var(--azul-noche);
+    color: var(--crema);
+    outline: 3px solid var(--verde-ruta);
+    outline-offset: 3px;
+}
+
+input,
+select,
+textarea {
+    font-family: var(--fuente-texto);
+    color: var(--azul-noche);
+    background-color: var(--crema);
+    border: 2px solid var(--gris-asfalto);
+    border-radius: 5px;
+    padding: var(--espacio-pequeno);
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: var(--verde-ruta);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--azul-noche);
+    outline: 3px solid var(--azul-noche);
+    outline-offset: 3px;
+}
+
+input[type="checkbox"] {
+    accent-color: var(--verde-ruta);
+}
+
+input[type="checkbox"]:focus {
+    outline: 3px solid var(--azul-noche);
+    outline-offset: 3px;
+}
+
+.saltar-contenido:focus {
+    outline: 3px solid var(--azul-noche);
+    outline-offset: 3px;
+}
+
+main a:not(.boton-principal):hover {
+    color: var(--azul-noche);
+    text-decoration: underline;
+}
+
+main a:not(.boton-principal):focus {
+    color: var(--azul-noche);
+    outline: 3px solid var(--azul-noche);
+    outline-offset: 3px;
 }

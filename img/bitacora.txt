@@ -216,3 +216,37 @@ Esto demuestra que el color de fondo no se hereda automáticamente.
 Verificación de tipografías
 Se revisaron las fuentes del sitio: Montserrat con grosor 700 para los encabezados y Open Sans con grosor 400 para los párrafos y 
 600 para los textos destacados.
+
+Conflicto de especificidad
+Se analizaron las reglas CSS #menu a y .activo utilizando la herramienta DevTools de Google Chrome.
+El selector #menu a tiene una especificidad de (1, 0, 1) porque contiene un identificador y un elemento HTML.
+El selector .activo tiene una especificidad de (0, 1, 0) porque contiene únicamente una clase.
+Se identificó que #menu a tiene mayor especificidad y, por lo tanto, su propiedad color prevalece sobre la propiedad color de .activo, 
+aunque esta última esté declarada después. La clase .activo sí se aplica, pero su declaración de color queda sobrescrita. 
+La propiedad font-weight puede mantenerse porque no entra en conflicto con la otra regla.
+
+Para solucionar el conflicto entre los selectores #menu a y .activo, se utilizó el selector #menu a.activo, cuya especificidad es (1, 1, 1).
+Este selector tiene mayor prioridad que #menu a, con especificidad (1, 0, 1), y que .activo, con especificidad (0, 1, 0).También se aplicó 
+un fondo Naranja Pedal con texto Azul Noche al enlace activo para identificar visualmente la página actual y mantener un contraste accesible.
+
+ Estados de navegación
+ Mediante :hover, los enlaces cambian a un fondo Naranja Pedal con texto Azul Noche cuando el usuario pasa el mouse sobre ellos.
+
+Mediante :focus, los enlaces reciben el mismo cambio de colores y un contorno Crema que permite identificar visualmente 
+el elemento seleccionado al navegar con el teclado.
+
+Botones y estados interactivos
+Se utilizó la clase boton-principal para dar apariencia de botón a los enlaces de reserva de las páginas Inicio y Tarifas, 
+y al botón de envío del formulario de Reservas.
+Se implementaron los estados :hover y :focus. En el estado normal se utiliza fondo Verde Ruta y texto Crema. 
+Al pasar el mouse, el botón cambia a fondo Naranja Pedal con texto Azul Noche.
+Al navegar mediante el teclado, el botón muestra un contorno Azul Noche que permite identificar el elemento enfocado.
+
+Indicadores de foco en formularios
+Se utilizaron las pseudoclases :hover y :focus en los elementos input, select y textarea.
+Cuando el usuario pasa el mouse sobre un campo, el borde cambia a Verde Ruta. Cuando el campo recibe el foco mediante el teclado, 
+se muestra un borde Azul Noche acompañado de un contorno Naranja Pedal.
+También se agregó un indicador de foco para la casilla de aceptación de políticas, permitiendo identificarla durante 
+la navegación con teclado.
+
+
