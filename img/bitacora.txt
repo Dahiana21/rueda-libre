@@ -131,12 +131,6 @@ Texto normal: apta
 Texto grande: apta
 Objetos graficos y componentes de interfaz: apta
 
-MI MAPA DE USO DE COLOR 
-Fondos:
-Botones:
-Enlaces:
-Texto:
-
 Auditoria de las tres pantallas
 Página index - index.html
 Se revisaron los textos alternativos de las imágenes, la jerarquía de encabezados, los textos de los enlaces, el idioma del documento y la navegación mediante teclado.
@@ -184,3 +178,41 @@ En el formulario de Reservas también se comprobará la selección de opciones m
 la aceptación de políticas y el acceso al botón de envío.
 
 Resultado: Funciona perfectamente la navegación por teclado.
+
+Github Pages
+Se publicó exitosamente el sitio web Rueda Libre v0.2 mediante GitHub Pages, utilizando la rama main del repositorio.
+Después de la publicación, se verificó el funcionamiento de las páginas Inicio, Tarifas y Reservas, 
+comprobando que la navegación, las imágenes y los enlaces funcionaran correctamente. De esta manera, el sitio quedó disponible públicamente en internet
+
+Link del sitio web: https://dahiana21.github.io/rueda-libre/
+
+Decisión de colores para la página web
+MI MAPA DE USO DE COLOR 
+Fondos: Crema #F4F6EF
+Botones principales: Verde ruta #1E7A4F
+Botones secundarios: Naranja pedal #F39A2B
+Enlaces: Verde ruta #1E7A4F
+Titulos: Azul noche #14213D
+Parrafos: Azul noche #14213D
+Texto secundario: Gris asfalto #5B6470
+Encabezado y pie de página:nAzul noche #14213D
+
+Estas combinaciones tienen contraste suficiente en WCAG AA
+
+Se revisaron las páginas Inicio, Tarifas y Reservas para comprobar que los estilos estuvieran centralizados en el archivo externo css/styles.css.
+Se verificó la ausencia de atributos style y etiquetas <style> en los documentos HTML. 
+También se revisaron las rutas relativas utilizadas para conectar la hoja de estilos desde las tres páginas.
+
+Comprobación de herencia de CSS
+Propiedad que se hereda: font-family
+Se revisó la regla body, donde se definió la fuente de texto mediante font-family: var(--fuente-texto). Esta propiedad se hereda 
+en los párrafos, permitiendo que utilicen Open Sans sin necesidad de declarar nuevamente la fuente en cada elemento.
+
+Propiedad que no se hereda: background-color
+Se analizó la propiedad background-color del párrafo y del cuerpo del documento. 
+El body tiene asignado el color Crema mediante var(--crema), mientras que el párrafo conserva un fondo transparente. 
+Esto demuestra que el color de fondo no se hereda automáticamente.
+
+Verificación de tipografías
+Se revisaron las fuentes del sitio: Montserrat con grosor 700 para los encabezados y Open Sans con grosor 400 para los párrafos y 
+600 para los textos destacados.

@@ -1,0 +1,100 @@
+:root {
+    --verde-ruta: #1E7A4F;
+    --naranja-pedal: #F39A2B;
+    --azul-noche: #14213D;
+    --crema: #FAF6EF;
+    --gris-asfalto: #5B6470;
+
+
+    --fuente-titulos: 'Montserrat', Arial, sans-serif;
+    --fuente-texto: 'Open Sans', Arial, sans-serif;
+
+
+    --espacio-pequeno: 0.5rem;
+    --espacio-mediano: 1rem;
+    --espacio-grande: 2rem;
+    --espacio-extra-grande: 3rem;
+}
+
+
+body {
+    font-family: var(--fuente-texto);
+    font-weight: 400;
+    color: var(--azul-noche);
+    background-color: var(--crema);
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--azul-noche);
+}
+
+
+strong {
+    font-weight: 600;
+}
+
+a {
+    color: var(--verde-ruta);
+    font-weight: 600;
+}
+
+header {
+    background-color: var(--azul-noche);
+    color: var(--crema);
+    padding: var(--espacio-grande);
+}
+
+
+header h1 {
+    color: var(--crema);
+}
+
+
+nav a {
+    color: var(--crema);
+}
+
+
+footer {
+    background-color: var(--azul-noche);
+    color: var(--crema);
+    padding: var(--espacio-grande);
+}
+
+
+footer h2,
+footer h3 {
+    color: var(--crema);
+}
+
+
+footer a {
+    color: var(--crema);
+}
+
+
+.boton-principal {
+    display: inline-block;
+    background-color: var(--verde-ruta);
+    color: var(--crema);
+    padding: var(--espacio-mediano);
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.boton-secundario {
+    display: inline-block;
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
+    padding: var(--espacio-mediano);
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
