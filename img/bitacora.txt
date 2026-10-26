@@ -298,3 +298,36 @@ Diferencia: 67.2 px.
 Conclusión:
 Con content-box, el navegador suma el padding y los bordes al ancho definido, aumentando el tamaño total de la tarjeta.
 Con border-box, el padding y los bordes se incluyen dentro del ancho establecido, permitiendo controlar mejor las dimensiones de los elementos de la página web.
+
+Enlace flotante de WhatsApp
+Se agregó un enlace flotante de WhatsApp en las tres páginas de Rueda Libre mediante la propiedad position: fixed.
+El enlace se ubicó en la esquina inferior derecha utilizando bottom y right, de manera que permanezca visible durante el desplazamiento por la página.
+También se aplicaron los colores oficiales de la marca y los estados :hover y :focus para mejorar la interacción y accesibilidad.
+El enlace utiliza target="_blank" y rel="noopener noreferrer" para abrir WhatsApp en una nueva pestaña de forma segura.
+
+CIERRE DE VERSION 1
+Cierre de bitácora — Rueda Libre v1.0
+Resumen de los MiniRetos
+
+1. Kilómetro 0 - Creamos el repositorio en GitHub, la estructura de carpetas y el archivo inicial HTML. 
+2. La vitrina de Rueda Libre - Construimos la página Inicio con información de la empresa, servicios, imágenes, enlaces y beneficios. 
+3. Tarifas  - Creamos la página Tarifas con tablas de precios, recorridos guiados y enlaces entre archivos. 
+4. Reservas  - Creamos la página Reservas con información general.
+5. Sitio navegable - Integramos las tres páginas mediante un menú de navegación y un pie de página común. 
+6. Estructura con significado - Organizamos el contenido utilizando etiquetas semánticas como header, nav, main, section y footer. 
+7. Formulario de reservas - Creamos un formulario con campos para datos personales, alquiler y confirmación. 
+8. Validación y teclado - Agregamos validaciones HTML5, campos obligatorios y navegación mediante teclado. 
+9. Publicación v0.2 - Revisamos la accesibilidad, definimos combinaciones de colores y publicamos el sitio en GitHub Pages. 
+10.Identidad visual - Implementamos CSS externo, variables, colores oficiales y tipografías para las tres páginas. 
+11. Estados interactivos - Incorporamos efectos `hover` y `focus`, resaltamos la página activa y corregimos conflictos de especificidad. 
+12. Modelo de caja - Mejoramos los espacios, tarjetas, tablas y formulario utilizando `box-sizing`, `padding`, `margin` y unidades relativas. 
+13. Lanzamiento v1.0 - Agregamos la etiqueta «Nuevo», el acceso flotante a WhatsApp, mejoramos el diseño de las tres páginas y realizamos la revisión final. 
+
+Los 13 MiniRetos permitieron desarrollar progresivamente Rueda Libre, un sitio web para el alquiler de bicicletas y recorridos guiados en Medellín.
+Primero construimos la estructura y el contenido de las tres páginas. Después incorporamos semántica, accesibilidad y validaciones. 
+Finalmente, aplicamos una identidad visual, mejoramos la distribución de los elementos y preparamos la versión 1.0 para su publicación.
+
+¿Qué mejoraría en el futuro?
+Como mejoras futuras, implementaría un sistema que permita almacenar y gestionar las reservas, consultar la disponibilidad de bicicletas en tiempo real, 
+integrar pagos en línea y enviar confirmaciones automáticas a los clientes.
+

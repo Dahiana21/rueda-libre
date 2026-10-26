@@ -6,39 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Rueda Libre es una empresa de alquiler de bicicletas en Medellín.">
     <title>Rueda Libre | Alquiler de bicicletas en Medellín</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
+<body class="pagina-inicio">
 
     <a href="#contenido-principal" class="saltar-contenido">
         Saltar al contenido principal
     </a>
 
     <header>
-        <img src="img/logo.jpeg" alt="Logo de Rueda Libre" width="150">
+        <img
+            src="img/logo.jpeg"
+            alt="Logo de Rueda Libre"
+            width="150"
+            class="logo-inicio"
+        >
 
         <h1>Rueda Libre</h1>
 
         <nav aria-label="Navegación principal">
             <ul id="menu">
                 <li>
-                    <a href="index.html" class="activo" aria-current="page">Inicio</a>
+                    <a href="index.html" class="activo" aria-current="page">
+                        Inicio
+                    </a>
                 </li>
-        
+
                 <li>
                     <a href="paginas/tarifas.html">Tarifas</a>
                 </li>
-        
+
                 <li>
                     <a href="paginas/reservas.html">Reservas</a>
                 </li>
             </ul>
         </nav>
-
     </header>
 
     <main id="contenido-principal">
@@ -46,7 +54,10 @@
         <section id="quienes-somos">
             <h2>¿Quiénes somos?</h2>
 
-            <p>Rueda Libre es un emprendimiento de Medellín que alquila bicicletas y organiza recorridos guiados por la ciudad.</p>
+            <p>
+                Rueda Libre es un emprendimiento de Medellín que alquila bicicletas
+                y organiza recorridos guiados por la ciudad.
+            </p>
 
             <p>
                 ¿Quieres conocer más sobre nosotros?
@@ -60,50 +71,87 @@
             >
         </section>
 
+        
         <section id="servicios">
             <h2>Servicios</h2>
 
-            <article>
-                <h3>Alquiler de bicicletas</h3>
+            <div class="contenedor-servicios">
 
-                <p>Ofrecemos una amplia <strong>variedad</strong> de bicicletas para alquilar, desde bicicletas de montaña hasta bicicletas urbanas.</p>
-            </article>
+                <article class="tarjeta-nueva">
+                    <span class="etiqueta-nuevo">Nuevo</span>
 
-            <article>
-                <h3>Recorridos guiados</h3>
+                    <h3>Alquiler de bicicletas eléctricas</h3>
 
-                <p>Organizamos recorridos guiados por la ciudad, donde podrás <strong>conocer</strong> los lugares más interesantes de Medellín desde una perspectiva única.</p>
+                    <p>
+                        Disfruta de Medellín con nuestras bicicletas
+                        eléctricas, ideales para recorrer la ciudad
+                        con mayor comodidad.
+                    </p>
 
-                <img
-                    src="img/ruta.png"
-                    alt="Mapa ilustrativo de una ruta de bicicleta por Medellín"
-                    width="250"
-                >
+                    <a href="paginas/tarifas.html">
+                        Ver tarifas
+                    </a>
+                </article>
 
-                <p>
-                    <a
-                        href="https://www.google.com/maps/place/Medell%C3%ADn,+Antioquia/@6.244203,-75.581212,12z/data=!3m1!4b1!4m6!3m5!1s0x8e442a2f7f9f9f9f:0x8e442a2f7f9f9f9f!8m2!3d6.244203!4d-75.581212!16zL20vMGNwZQ?entry=ttu"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                <article>
+                    <h3>Alquiler de bicicletas</h3>
+
+                    <p>
+                        Ofrecemos una amplia <strong>variedad</strong> de bicicletas
+                        para alquilar, desde bicicletas de montaña hasta
+                        bicicletas urbanas.
+                    </p>
+                </article>
+
+                <article>
+                    <h3>Recorridos guiados</h3>
+
+                    <p>
+                        Organizamos recorridos guiados por la ciudad,
+                        donde podrás <strong>conocer</strong> los lugares más
+                        interesantes de Medellín desde una perspectiva única.
+                    </p>
+
+                    <img
+                        src="img/ruta.png"
+                        alt="Mapa ilustrativo de una ruta de bicicleta por Medellín"
+                        width="250"
                     >
-                        Ver ubicación de Medellín en Google Maps (abre en otra pestaña)
-                    </a>
-                </p>
 
-                <p>
-                    <a href="paginas/tarifas.html#recorridos">
-                        Ver tarifas de recorridos
-                    </a>
-                </p>
-            </article>
+                    <p>
+                        <a
+                            href="https://www.google.com/maps/place/Medell%C3%ADn,+Antioquia/@6.244203,-75.581212,12z/data=!3m1!4b1!4m6!3m5!1s0x8e442a2f7f9f9f9f:0x8e442a2f7f9f9f9f!8m2!3d6.244203!4d-75.581212!16zL20vMGNwZQ?entry=ttu"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Ver ubicación de Medellín en Google Maps (abre en otra pestaña)
+                        </a>
+                    </p>
 
-            <article>
-                <h3>Taller básico</h3>
+                    <p>
+                        <a href="paginas/tarifas.html#recorridos">
+                            Ver tarifas de recorridos
+                        </a>
+                    </p>
+                </article>
 
-                <p>Ofrecemos <strong>servicios</strong> de mantenimiento y reparación de bicicletas, así como talleres para aprender a <strong>cuidar</strong> tu bicicleta.</p>
-            </article>
+                <article class="tarjeta-taller">
+                    <h3>Taller básico</h3>
+                
+                    <p>
+                        Ofrecemos <strong>servicios</strong> de mantenimiento y
+                        reparación de bicicletas, así como talleres para aprender
+                        a <strong>cuidar</strong> tu bicicleta.
+                    </p>
+                
+                    <img src="img/taller.jpg" alt="Taller de mantenimiento y reparación de bicicletas" class="imagen-taller">
+                </article>
+
+
+            </div>
         </section>
 
+        
         <section id="pasos-alquiler">
             <h2>Pasos para alquilar</h2>
 
@@ -115,10 +163,11 @@
             </ol>
 
             <a href="paginas/tarifas.html" class="boton-principal">
-                 Ver las tarifas de alquiler
+                Ver las tarifas de alquiler
             </a>
         </section>
 
+        
         <section id="beneficios">
             <h2>Beneficios</h2>
 
@@ -131,23 +180,36 @@
 
     </main>
 
+    
     <footer id="contacto">
         <h2>Contacto</h2>
 
         <p>¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!</p>
 
         <h3>Teléfono</h3>
+
         <a href="tel:+5741234567">
             Llámanos al +57 4 123 4567
         </a>
 
         <h3>Correo electrónico</h3>
+
         <a href="mailto:ruedalibre@info.com">
             Escríbenos a ruedalibre@info.com
         </a>
 
         <p>2026 - Todos los derechos reservados</p>
     </footer>
+
+    
+    <a
+        href="https://wa.me/573000000000"
+        class="whatsapp-flotante"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        WhatsApp
+    </a>
 
 </body>
 </html>

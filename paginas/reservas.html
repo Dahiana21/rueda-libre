@@ -6,23 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Reserva bicicletas y recorridos guiados con Rueda Libre en Medellín.">
     <title>Reservas | Rueda Libre</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
-<body>
+<body class="pagina-reservas">
 
-    <a href="#contenido-principal">
+    <a href="#contenido-principal" class="saltar-contenido">
         Saltar al contenido principal
     </a>
 
+    
     <header>
         <img
             src="../img/logo.jpeg"
             alt="Logo de Rueda Libre"
             width="150"
+            class="logo-reservas"
         >
 
         <h1>Rueda Libre</h1>
@@ -32,23 +36,28 @@
                 <li>
                     <a href="../index.html">Inicio</a>
                 </li>
-        
+
                 <li>
                     <a href="tarifas.html">Tarifas</a>
                 </li>
-        
+
                 <li>
-                    <a href="reservas.html" class="activo" aria-current="page">Reservas</a>
+                    <a href="reservas.html" class="activo" aria-current="page">
+                        Reservas
+                    </a>
                 </li>
             </ul>
         </nav>
-
     </header>
 
     <main id="contenido-principal">
 
-        <h2>Reserva tu bicicleta</h2>
+        
+        <div class="presentacion-reservas">
+            <h2>Reserva tu bicicleta</h2>
+        </div>
 
+        
         <section id="horarios">
             <h2>Horarios de atención</h2>
 
@@ -64,7 +73,9 @@
             </ul>
         </section>
 
+        
         <section id="formulario-reserva">
+
             <h2>Formulario de reserva</h2>
 
             <p>
@@ -76,9 +87,8 @@
 
             <form action="" method="post">
 
-                
-
-                <fieldset>
+              
+                <fieldset class="grupo-reserva">
                     <legend>Tus datos</legend>
 
                     <p>
@@ -163,12 +173,10 @@
                             Debe tener 10 dígitos y comenzar por 3.
                         </small>
                     </p>
-
                 </fieldset>
 
                 
-
-                <fieldset>
+                <fieldset class="grupo-reserva">
                     <legend>Tu alquiler</legend>
 
                     <p>
@@ -280,12 +288,10 @@
                             </option>
                         </select>
                     </p>
-
                 </fieldset>
 
                 
-
-                <fieldset>
+                <fieldset class="grupo-reserva">
                     <legend>Confirmación</legend>
 
                     <p>
@@ -322,10 +328,10 @@
                             de Rueda Libre. *
                         </label>
                     </p>
-
                 </fieldset>
 
-                <p>
+                
+                <p class="accion-reserva">
                     <button type="submit" class="boton-principal">
                         Enviar reserva
                     </button>
@@ -336,6 +342,7 @@
 
     </main>
 
+    
     <footer id="contacto">
         <h2>Contacto</h2>
 
@@ -358,6 +365,16 @@
 
         <p>2026 - Todos los derechos reservados</p>
     </footer>
+
+    
+    <a
+        href="https://wa.me/573000000000"
+        class="whatsapp-flotante"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        WhatsApp
+    </a>
 
 </body>
 </html>
