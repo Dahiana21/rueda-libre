@@ -346,3 +346,33 @@ Grid se utilizó para distribuir las tarjetas en filas y columnas; Flexbox se ut
 
 
 
+MiniReto 3 (semana 3): Layout general con Grid y Flexbox
+
+Se reorganizó la portada de Inicio en dos columnas, se creó la galería Nuestras rutas y se distribuyó el formulario de Reservas junto a un panel de contacto.
+Portada: Grid organiza el texto a la izquierda y la fotografía a la derecha. Flexbox centra verticalmente el texto.
+Galería: Grid muestra las tres rutas guiadas en una fila en escritorio.
+Reservas: Grid distribuye el formulario y el contacto en proporción 2fr 1fr.
+Documento y celular: Grid permite mostrar ambos campos en una misma fila en escritorio.
+Encabezado: Flexbox alinea la marca y el menú horizontalmente.
+Pie de página: Flexbox distribuye los bloques de marca, contacto y horarios.
+
+Problemas encontrados y soluciones: 
+Inicialmente, las tarjetas de las rutas no mostraban correctamente sus títulos y botones debido a diferencias entre los nombres de las clases HTML y CSS. 
+Se corrigieron las clases, la estructura HTML y las reglas CSS. T
+ambién se reorganizó la hoja de estilos para evitar reglas repetidas.
+
+Resultados de las pruebas responsive
+
+Ancho 360 px — Móvil  - Comportamiento esperado: Contenido en una columna, menú adaptable y footer vertical.
+Ancho 500 px — Móvil  - Comportamiento esperado: Flota en una columna y contenido ajustado al ancho disponible.
+Ancho 768 px — Tableta  - Comportamiento esperado: Portada en dos columnas, rutas en dos columnas y encabezado horizontal.
+Ancho 900 px — Escritorio pequeño  - Comportamiento esperado: Flota adaptable, con aproximadamente dos columnas.
+Ancho 1280 px — Escritorio  - Comportamiento esperado: CTres rutas en fila, portada en dos columnas y reservas en proporción 2:1.
+
+
+
+
+
+
+
+

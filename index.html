@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -55,25 +54,42 @@
 
     <main id="contenido-principal">
 
-        <!-- QUIÉNES SOMOS -->
+        <!-- Portada -->
         <section id="quienes-somos">
-            <h2>¿Quiénes somos?</h2>
+            <div class="portada-grid">
 
-            <p>
-                Rueda Libre es un emprendimiento de Medellín que alquila bicicletas
-                y organiza recorridos guiados por la ciudad.
-            </p>
+                <div class="portada-texto">
+                    <h2>¿Quiénes somos?</h2>
+                    <p>
+                        Rueda Libre es un emprendimiento de Medellín que alquila bicicletas
+                        y organiza recorridos guiados por la ciudad.
 
-            <p>
-                ¿Quieres conocer más sobre nosotros?
-                <a href="#contacto">Contáctanos</a>
-            </p>
+                    </p>    
 
-            <img
-                src="img/portada.jpeg"
-                alt="Imagen de presentación de Rueda Libre, emprendimiento de alquiler de bicicletas en Medellín"
-                width="250"
-            >
+                    <p>
+                        ¿Quieres conocer más sobre nosotros?
+                        <a href="#contacto">Contáctanos</a>
+                    </p>    
+
+                    <a 
+                        href="#flota"
+                        class="boton-principal"
+                        >
+                       
+                        Conoce nuestra flota
+                    
+                    </a>
+                </div>
+
+                <div class="portada-imagen">
+                    <img
+                        src="img/portada.jpeg"
+                        alt="Imagen de presentación de Rueda Libre, emprendimiento de alquiler de bicicletas en Medellín"
+                        width="600"
+                    >
+                </div>
+            
+            </div>  
         </section>
 
         <!-- SERVICIOS -->
@@ -380,6 +396,121 @@
 
             </div>
         </section>
+
+        
+        <!-- NUESTRAS RUTAS -->
+        <section id="rutas" aria-labelledby="titulo-rutas">
+
+            <h2 id="titulo-rutas">Nuestras rutas</h2>
+
+            <p class="descripcion-rutas">
+            Descubre Medellín sobre dos ruedas con nuestros recorridos guiados.
+            Tenemos opciones para diferentes niveles de experiencia.
+            </p>
+
+            <div class="contenedor-rutas">
+
+                <!-- RUTA 1 -->
+                <article class="tarjeta-ruta">
+
+                    <img
+                        src="img/rio y parques.jpg"
+                        alt="Recorrido guiado por el río y parques de Medellín"
+                        loading="lazy"
+                    >
+
+                    <div class="contenido-ruta">
+
+                        <h3>Río y Parques</h3>
+
+                        <p>
+                            Disfruta de un recorrido por espacios
+                            verdes y lugares emblemáticos de Medellín.
+                        </p>
+
+                        <p class="nivel-ruta">
+                            Nivel: <strong>Fácil</strong>
+                        </p>
+
+                        <a
+                            href="paginas/tarifas.html#recorridos"
+                            class="boton-secundario"
+                        >
+                            Ver tarifas
+                        </a>
+
+                    </div>
+                </article>
+
+                <!-- RUTA 2 -->
+                <article class="tarjeta-ruta">
+
+                    <img
+                        src="img/sabores de barrio.jpg"
+                        alt="Recorrido guiado por los barrios de Medellín"
+                        loading="lazy"
+                    >
+
+                    <div class="contenido-ruta">
+
+                        <h3>Sabores de Barrio</h3>
+
+                        <p>
+                            Explora los barrios de Medellín y descubre
+                            algunos de sus espacios más representativos.
+                        </p>
+
+                        <p class="nivel-ruta">
+                            Nivel: <strong>Medio</strong>
+                        </p>
+
+                        <a
+                            href="paginas/tarifas.html#recorridos"
+                            class="boton-secundario"
+                        >
+                            Ver tarifas
+                        </a>
+
+                    </div>
+                </article>
+
+                <!-- RUTA 3 -->
+                <article class="tarjeta-ruta">
+
+                    <img
+                        src="img/reto las palmas.jpg"
+                        alt="Recorrido guiado por la ruta de Las Palmas en Medellín"
+                        loading="lazy"
+                    >
+
+                    <div class="contenido-ruta">
+
+                        <h3>Reto las Palmas</h3>
+
+                        <p>
+                            Pon a prueba tu resistencia con un recorrido
+                            exigente, ideal para ciclistas experimentados.
+                        </p>
+
+                        <p class="nivel-ruta">
+                            Nivel: <strong>Difícil</strong>
+                        </p>
+
+                        <a
+                            href="paginas/tarifas.html#recorridos"
+                            class="boton-secundario"
+                        >
+                            Ver tarifas
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+        
 
         <!-- PASOS PARA ALQUILAR -->
         <section id="pasos-alquiler">
