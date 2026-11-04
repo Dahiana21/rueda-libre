@@ -331,3 +331,12 @@ Finalmente, aplicamos una identidad visual, mejoramos la distribución de los el
 Como mejoras futuras, implementaría un sistema que permita almacenar y gestionar las reservas, consultar la disponibilidad de bicicletas en tiempo real, 
 integrar pagos en línea y enviar confirmaciones automáticas a los clientes.
 
+MiniReto 1 (semana 2) — Encabezado y pie de página con Flexbox
+
+Se reorganizó el encabezado de las tres páginas utilizando Flexbox, agrupando el logotipo y el nombre de Rueda Libre a un lado y el menú de navegación al otro.
+
+También se implementó flex-wrap para permitir que el menú se adapte a pantallas pequeñas y gap para separar uniformemente los enlaces.
+
+El pie de página se dividió en tres bloques: marca, contacto y horarios. Se aplicó un enfoque mobile-first para mostrar los bloques verticalmente en celulares y en fila en pantallas amplias.
+
+Propiedades utilizadas: display: flex, flex-direction,justify-content, align-items, flex-wrap y gap.
