@@ -1,9 +1,3 @@
-
-/* =========================================
-   RUEDA LIBRE V1.5
-   CSS ORGANIZADO - FLEXBOX Y GRID
-   ========================================= */
-
 /* 1. VARIABLES */
 
 :root {
@@ -24,6 +18,7 @@
     --espacio-grande: 2rem;
     --espacio-extra-grande: 3rem;
 }
+
 
 /* 2. ESTILOS GENERALES */
 
@@ -62,6 +57,7 @@ a {
 }
 
 img {
+    display: block;
     max-width: 100%;
     height: auto;
 }
@@ -70,38 +66,46 @@ main {
     width: 100%;
     max-width: 75rem;
     margin: 0 auto;
-    padding: var(--espacio-grande);
+    padding: var(--espacio-mediano);
 }
 
-/* ACCESIBILIDAD */
+
+/* 3. ACCESIBILIDAD */
 
 .saltar-contenido {
     position: absolute;
-    left: -9999px;
     top: 0;
+    left: -9999px;
     z-index: 2000;
-    background-color: var(--crema);
+
     padding: var(--espacio-mediano);
+    background-color: var(--crema);
+    color: var(--azul-noche);
 }
 
 .saltar-contenido:focus {
-    left: var(--espacio-mediano);
     top: var(--espacio-mediano);
+    left: var(--espacio-mediano);
+
     outline: 3px solid var(--azul-noche);
+    outline-offset: 3px;
 }
 
-/* 3. ENCABEZADO - FLEXBOX */
+
+/* 4. ENCABEZADO MOBILE-FIRST */
 
 header {
+    padding: var(--espacio-mediano);
     background-color: var(--azul-noche);
     color: var(--crema);
-    padding: var(--espacio-mediano);
 }
+
+/* Móvil: marca arriba y menú debajo */
 
 .encabezado-contenido {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: var(--espacio-mediano);
@@ -112,32 +116,40 @@ header {
 
 .marca-sitio {
     display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
     gap: var(--espacio-mediano);
+
+    min-width: 0;
 }
 
 .logo-inicio,
 .logo-tarifas,
 .logo-reservas {
-    display: block;
     width: 4.5rem;
+    max-width: 100%;
     height: auto;
     margin: 0;
+
     border-radius: 0.75rem;
+    flex-shrink: 0;
 }
 
 .marca-sitio h1 {
     margin: 0;
     color: var(--crema);
     font-size: clamp(1.35rem, 4vw, 2rem);
+    line-height: 1.25;
 }
 
 .encabezado-contenido nav {
-    max-width: 100%;
+    width: 100%;
+    min-width: 0;
 }
 
-/* 4. MENÚ - FLEXBOX */
+
+/* 5. MENÚ CON FLEXBOX */
 
 #menu {
     display: flex;
@@ -145,7 +157,7 @@ header {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: var(--espacio-mediano);
+    gap: var(--espacio-pequeno);
 
     list-style: none;
     margin: 0;
@@ -154,37 +166,42 @@ header {
 
 #menu li {
     margin: 0;
+    padding: 0;
 }
 
 #menu a {
     display: block;
     padding: var(--espacio-pequeno);
+
     color: var(--crema);
     text-decoration: none;
     border-radius: 5px;
 }
 
-#menu a.activo,
-#menu a:hover,
-#menu a:focus {
+#menu a.activo {
     background-color: var(--naranja-pedal);
     color: var(--azul-noche);
 }
 
 #menu a:hover,
 #menu a:focus {
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
     text-decoration: underline;
 }
 
-#menu a:focus {
+#menu a:focus-visible {
     outline: 3px solid var(--crema);
     outline-offset: 3px;
 }
 
-/* 5. BOTONES */
+
+/* 6. BOTONES GENERALES */
 
 .boton-principal {
     display: inline-block;
+
+    max-width: 100%;
     padding: var(--espacio-mediano);
 
     background-color: var(--verde-ruta);
@@ -196,6 +213,7 @@ header {
     font-family: var(--fuente-texto);
     font-weight: 600;
     text-decoration: none;
+    text-align: center;
     cursor: pointer;
 }
 
@@ -208,12 +226,15 @@ header {
 .boton-principal:focus-visible {
     background-color: var(--naranja-pedal);
     color: var(--azul-noche);
+
     outline: 3px solid var(--azul-noche);
     outline-offset: 3px;
 }
 
 .boton-secundario {
     display: inline-block;
+
+    max-width: 100%;
     padding: var(--espacio-mediano);
 
     background-color: var(--naranja-pedal);
@@ -222,6 +243,7 @@ header {
     border-radius: 8px;
     font-weight: 600;
     text-decoration: none;
+    text-align: center;
     cursor: pointer;
 }
 
@@ -233,11 +255,13 @@ header {
 .boton-secundario:focus-visible {
     background-color: var(--verde-ruta);
     color: var(--blanco);
+
     outline: 3px solid var(--azul-noche);
     outline-offset: 3px;
 }
 
-/* 6. SECCIONES DE INICIO */
+
+/* 7. SECCIONES DE INICIO */
 
 .pagina-inicio main > section {
     margin-bottom: var(--espacio-extra-grande);
@@ -246,15 +270,17 @@ header {
 .pagina-inicio main > section > h2 {
     margin-top: 0;
     margin-bottom: var(--espacio-grande);
+
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
-/* 7. PORTADA - GRID Y FLEXBOX */
+
+/* 8. PORTADA - MÓVIL EN UNA COLUMNA */
 
 #quienes-somos {
     background-color: var(--verde-suave);
-    padding: var(--espacio-grande);
+    padding: var(--espacio-mediano);
     border-radius: 1rem;
 }
 
@@ -271,16 +297,19 @@ header {
     justify-content: center;
     align-items: flex-start;
     gap: var(--espacio-mediano);
+
     min-width: 0;
 }
 
-.portada-texto h2,
-.portada-texto p {
+.portada-texto h2 {
     margin: 0;
+    font-size: 1.5rem;
 }
 
-.portada-texto h2 {
-    font-size: 1.8rem;
+.portada-texto p {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
 }
 
 .portada-texto .boton-principal {
@@ -289,31 +318,33 @@ header {
 
 .portada-imagen {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+
     min-width: 0;
 }
 
 #quienes-somos .portada-imagen img {
-    display: block;
     width: 100%;
     max-width: 100%;
     height: auto;
     margin: 0;
+
     border-radius: 1rem;
 }
 
-/* 8. SERVICIOS - GRID */
+
+/* 9. SERVICIOS */
 
 .contenedor-servicios {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--espacio-grande);
+    gap: var(--espacio-mediano);
 }
 
 #servicios article {
     min-width: 0;
-    padding: var(--espacio-grande);
+    padding: var(--espacio-mediano);
 
     background-color: var(--blanco);
     border: 1px solid var(--borde-suave);
@@ -324,19 +355,21 @@ header {
 
 #servicios article h3 {
     margin-top: 0;
+    margin-bottom: var(--espacio-mediano);
+
     color: var(--verde-ruta);
 }
 
 #servicios article img {
-    display: block;
     width: 100%;
     max-width: 24rem;
     height: auto;
     margin: var(--espacio-mediano) auto;
+
     border-radius: 0.75rem;
 }
 
-/* SERVICIO DESTACADO */
+/* Servicio destacado */
 
 #servicios .tarjeta-nueva {
     position: relative;
@@ -349,15 +382,17 @@ header {
     top: 0;
     right: 0;
 
+    padding: var(--espacio-pequeno)
+             var(--espacio-mediano);
+
     background-color: var(--naranja-pedal);
     color: var(--azul-noche);
 
-    padding: var(--espacio-pequeno) var(--espacio-mediano);
     border-radius: 0 1rem 0 1rem;
     font-weight: 600;
 }
 
-/* SERVICIO DE TALLER */
+/* Taller */
 
 #servicios .tarjeta-taller {
     display: flex;
@@ -378,7 +413,8 @@ header {
     margin-bottom: 0;
 }
 
-/* 9. NUESTRA FLOTA - GRID AUTOMÁTICO */
+
+/* 10. NUESTRA FLOTA - GRID AUTOMÁTICO */
 
 .descripcion-flota,
 .descripcion-rutas {
@@ -389,10 +425,11 @@ header {
 
 .contenedor-flota {
     display: grid;
+
     grid-template-columns:
         repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
 
-    gap: var(--espacio-grande);
+    gap: var(--espacio-mediano);
     align-items: stretch;
 }
 
@@ -410,14 +447,14 @@ header {
 }
 
 .tarjeta-bicicleta > img {
-    display: block;
     width: 100%;
+    max-width: 100%;
     height: 11rem;
 
     object-fit: contain;
     object-position: center;
 
-    padding: 1rem;
+    padding: var(--espacio-mediano);
     background-color: var(--verde-suave);
 }
 
@@ -425,14 +462,16 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    flex: 1;
 
-    padding: var(--espacio-grande);
+    flex: 1;
+    min-width: 0;
+    padding: var(--espacio-mediano);
 }
 
 .contenido-bicicleta h3 {
     margin-top: 0;
     margin-bottom: var(--espacio-mediano);
+
     color: var(--verde-ruta);
     font-size: 1.25rem;
 }
@@ -460,15 +499,15 @@ header {
     display: block;
     width: 100%;
     margin-top: auto;
-    text-align: center;
 }
 
-/* 10. NUESTRAS RUTAS - GRID */
+
+/* 11. NUESTRAS RUTAS */
 
 .contenedor-rutas {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--espacio-grande);
+    gap: var(--espacio-mediano);
     align-items: stretch;
 }
 
@@ -486,8 +525,8 @@ header {
 }
 
 .tarjeta-ruta > img {
-    display: block;
     width: 100%;
+    max-width: 100%;
     height: 12rem;
 
     object-fit: contain;
@@ -497,7 +536,7 @@ header {
     background-color: var(--verde-suave);
 }
 
-/* CONTENIDO INTERNO - FLEXBOX */
+/* Flexbox dentro de cada ruta */
 
 .contenido-ruta {
     display: flex;
@@ -507,11 +546,12 @@ header {
 
     flex: 1;
     min-width: 0;
-    padding: var(--espacio-grande);
+    padding: var(--espacio-mediano);
 }
 
 .contenido-ruta h3 {
     margin: 0;
+
     color: var(--verde-ruta);
     font-family: var(--fuente-titulos);
     font-size: 1.25rem;
@@ -526,7 +566,7 @@ header {
     color: var(--azul-noche);
 }
 
-/* BOTÓN COMPACTO Y CENTRADO */
+/* Botón al final de cada tarjeta */
 
 .contenido-ruta .boton-secundario {
     display: inline-flex;
@@ -554,11 +594,13 @@ header {
 .contenido-ruta .boton-secundario:focus-visible {
     background-color: var(--verde-ruta);
     color: var(--blanco);
+
     outline: 3px solid var(--azul-noche);
     outline-offset: 3px;
 }
 
-/* 11. PASOS PARA ALQUILAR */
+
+/* 12. PASOS PARA ALQUILAR */
 
 #pasos-alquiler {
     text-align: center;
@@ -571,6 +613,7 @@ header {
 
     list-style: none;
     counter-reset: paso;
+
     padding: 0;
     margin: 0 0 var(--espacio-grande);
 }
@@ -578,11 +621,13 @@ header {
 #pasos-alquiler li {
     counter-increment: paso;
 
-    background-color: var(--verde-suave);
-    padding: var(--espacio-grande) var(--espacio-mediano);
+    padding: var(--espacio-grande)
+             var(--espacio-mediano);
 
+    background-color: var(--verde-suave);
     border: 1px solid var(--borde-suave);
     border-radius: 1rem;
+
     text-align: center;
 }
 
@@ -590,8 +635,8 @@ header {
     content: counter(paso);
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
     width: 3rem;
     height: 3rem;
@@ -605,7 +650,8 @@ header {
     font-weight: 700;
 }
 
-/* 12. BENEFICIOS */
+
+/* 13. BENEFICIOS */
 
 #beneficios ul {
     display: grid;
@@ -618,9 +664,9 @@ header {
 }
 
 #beneficios li {
-    background-color: var(--blanco);
-    padding: var(--espacio-grande);
+    padding: var(--espacio-mediano);
 
+    background-color: var(--blanco);
     border: 1px solid var(--borde-suave);
     border-radius: 1rem;
 
@@ -639,52 +685,23 @@ header {
     margin-bottom: var(--espacio-pequeno);
 }
 
-/* 13. TARIFAS - TABLAS */
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: var(--espacio-grande);
-}
-
-th,
-td {
-    padding: var(--espacio-mediano);
-    border: 1px solid var(--gris-asfalto);
-    text-align: left;
-}
-
-thead th {
-    background-color: var(--azul-noche);
-    color: var(--crema);
-}
-
-tbody th {
-    background-color: var(--crema);
-}
-
-caption {
-    padding-bottom: var(--espacio-pequeno);
-    text-align: left;
-    font-weight: 600;
-}
-
-/* PRESENTACIÓN */
+/* 14. PRESENTACIÓN DE TARIFAS Y RESERVAS */
 
 .presentacion-tarifas,
 .presentacion-reservas {
-    background-color: var(--verde-suave);
-    padding: var(--espacio-grande);
-    border-radius: 1rem;
+    padding: var(--espacio-mediano);
+    margin-bottom: var(--espacio-grande);
 
+    background-color: var(--verde-suave);
+    border-radius: 1rem;
     text-align: center;
-    margin-bottom: var(--espacio-extra-grande);
 }
 
 .presentacion-tarifas h2,
 .presentacion-reservas h2 {
     margin: 0 0 var(--espacio-mediano);
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 .presentacion-reservas h2 {
@@ -696,13 +713,15 @@ caption {
     margin: 0 auto;
 }
 
-/* SECCIONES DE TARIFAS */
+
+/* 15. TARIFAS - SECCIONES */
 
 .seccion-tarifas {
+    padding: var(--espacio-mediano);
+    margin-bottom: var(--espacio-grande);
+
     background-color: var(--verde-suave);
-    padding: var(--espacio-grande);
     border-radius: 1rem;
-    margin-bottom: var(--espacio-extra-grande);
 }
 
 .seccion-tarifas > h2 {
@@ -712,39 +731,153 @@ caption {
 }
 
 .contenedor-tabla {
-    background-color: var(--blanco);
-    padding: var(--espacio-mediano);
+    width: 100%;
+    min-width: 0;
 
+    padding: var(--espacio-pequeno);
+
+    background-color: var(--blanco);
     border: 1px solid var(--borde-suave);
     border-radius: 1rem;
 
-    overflow-x: auto;
     box-shadow: 0 0.3rem 1rem rgba(20, 33, 61, 0.06);
 }
 
-.contenedor-tabla table {
-    margin-bottom: 0;
-}
-
 .accion-tarifas {
-    margin-top: var(--espacio-grande);
-    margin-bottom: 0;
+    margin: var(--espacio-grande) 0 0;
     text-align: center;
 }
 
-/* INFORMACIÓN ADICIONAL */
+
+/* 16. TABLAS MOBILE-FIRST */
+
+/* En celular, cada bicicleta o recorrido
+   se muestra como una ficha vertical. */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+caption {
+    padding-bottom: var(--espacio-mediano);
+    color: var(--azul-noche);
+    font-weight: 600;
+    text-align: left;
+}
+
+thead {
+    display: none;
+}
+
+tbody {
+    display: block;
+}
+
+tbody tr {
+    display: block;
+
+    margin-bottom: var(--espacio-mediano);
+
+    border: 1px solid var(--borde-suave);
+    border-radius: 0.75rem;
+    overflow: hidden;
+
+    background-color: var(--blanco);
+}
+
+tbody tr:last-child {
+    margin-bottom: 0;
+}
+
+tbody th[scope="row"] {
+    display: block;
+
+    padding: var(--espacio-pequeno);
+    background-color: var(--azul-noche);
+    color: var(--crema);
+
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Cada dato ocupa una fila de su ficha */
+
+tbody td {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr) minmax(0, 1fr);
+
+    gap: var(--espacio-pequeno);
+
+    padding: var(--espacio-pequeno);
+
+    border-bottom: 1px solid var(--borde-suave);
+    min-width: 0;
+
+    overflow-wrap: anywhere;
+}
+
+tbody td:last-child {
+    border-bottom: none;
+}
+
+tbody td::before {
+    color: var(--azul-noche);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+/* Etiquetas de la tabla de alquiler */
+
+#alquiler tbody td:nth-of-type(1)::before {
+    content: "1 hora:";
+}
+
+#alquiler tbody td:nth-of-type(2)::before {
+    content: "Medio día (4 h):";
+}
+
+#alquiler tbody td:nth-of-type(3)::before {
+    content: "Día completo:";
+}
+
+/* Etiquetas de la tabla de recorridos */
+
+#recorridos tbody td:nth-of-type(1)::before {
+    content: "Distancia:";
+}
+
+#recorridos tbody td:nth-of-type(2)::before {
+    content: "Duración:";
+}
+
+#recorridos tbody td:nth-of-type(3)::before {
+    content: "Nivel:";
+}
+
+#recorridos tbody td:nth-of-type(4)::before {
+    content: "Precio por persona:";
+}
+
+
+/* 17. INFORMACIÓN ADICIONAL DE TARIFAS */
 
 .informacion-complementaria {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--espacio-grande);
-    margin-bottom: var(--espacio-extra-grande);
+    gap: var(--espacio-mediano);
+
+    margin-bottom: var(--espacio-grande);
 }
 
 .tarjeta-informacion {
-    background-color: var(--blanco);
-    padding: var(--espacio-grande);
+    min-width: 0;
+    padding: var(--espacio-mediano);
 
+    background-color: var(--blanco);
     border: 1px solid var(--borde-suave);
     border-radius: 1rem;
 
@@ -765,23 +898,24 @@ caption {
     color: var(--verde-ruta);
 }
 
-/* 14. RESERVAS - HORARIOS */
+
+/* 18. HORARIOS EN RESERVAS */
 
 #horarios {
-    background-color: var(--blanco);
-    padding: var(--espacio-grande);
+    padding: var(--espacio-mediano);
+    margin-bottom: var(--espacio-grande);
 
+    background-color: var(--blanco);
     border: 1px solid var(--borde-suave);
     border-radius: 1rem;
 
-    margin-bottom: var(--espacio-extra-grande);
     box-shadow: 0 0.3rem 1rem rgba(20, 33, 61, 0.06);
 }
 
 #horarios h2 {
+    margin-top: 0;
     color: var(--verde-ruta);
     text-align: center;
-    margin-top: 0;
 }
 
 #horarios ul {
@@ -795,15 +929,17 @@ caption {
 }
 
 #horarios li {
-    background-color: var(--verde-suave);
     padding: var(--espacio-mediano);
 
+    background-color: var(--verde-suave);
     border: 1px solid var(--borde-suave);
     border-radius: 0.75rem;
+
     text-align: center;
 }
 
-/* 15. RESERVAS - GRID GENERAL */
+
+/* 19. RESERVAS - LAYOUT MOBILE-FIRST */
 
 .layout-reservas {
     display: grid;
@@ -816,13 +952,16 @@ caption {
     min-width: 0;
 }
 
-/* 16. FORMULARIO */
+
+/* 20. FORMULARIO */
 
 #formulario-reserva {
+    min-width: 0;
+    padding: var(--espacio-mediano);
+
     background-color: var(--verde-suave);
-    padding: var(--espacio-grande);
     border-radius: 1rem;
-    margin-bottom: var(--espacio-extra-grande);
+    margin-bottom: var(--espacio-grande);
 }
 
 .layout-reservas #formulario-reserva {
@@ -830,22 +969,22 @@ caption {
 }
 
 #formulario-reserva > h2 {
-    text-align: center;
     margin-top: 0;
+    text-align: center;
 }
 
 #formulario-reserva > p {
-    text-align: center;
     max-width: 42rem;
     margin: 0 auto var(--espacio-mediano);
+    text-align: center;
 }
 
-/* GRUPOS DEL FORMULARIO */
+/* Grupos */
 
 form fieldset {
     min-width: 0;
+    padding: var(--espacio-mediano);
     margin-bottom: var(--espacio-grande);
-    padding: var(--espacio-grande);
 
     background-color: var(--blanco);
     border: 1px solid var(--borde-suave);
@@ -855,10 +994,11 @@ form fieldset {
 }
 
 form legend {
+    padding: var(--espacio-pequeno)
+             var(--espacio-mediano);
+
     background-color: var(--verde-ruta);
     color: var(--crema);
-
-    padding: var(--espacio-pequeno) var(--espacio-mediano);
     border-radius: 0.5rem;
 
     font-family: var(--fuente-titulos);
@@ -880,7 +1020,7 @@ form label {
     font-weight: 600;
 }
 
-/* CAMPOS */
+/* Campos */
 
 form input:not([type="checkbox"]),
 form select,
@@ -889,6 +1029,8 @@ form textarea {
 
     width: 100%;
     max-width: 100%;
+    min-width: 0;
+
     padding: var(--espacio-mediano);
 
     background-color: var(--crema);
@@ -918,9 +1060,10 @@ form small {
     display: block;
     margin-top: var(--espacio-pequeno);
     color: var(--gris-asfalto);
+    overflow-wrap: anywhere;
 }
 
-/* DOCUMENTO Y CELULAR */
+/* Documento y celular */
 
 .fila-campos {
     display: grid;
@@ -932,7 +1075,7 @@ form small {
     min-width: 0;
 }
 
-/* CONFIRMACIÓN */
+/* Checkbox */
 
 form input[type="checkbox"] {
     display: inline-block;
@@ -945,6 +1088,8 @@ form input[type="checkbox"] + label {
     margin-left: var(--espacio-pequeno);
 }
 
+/* Enviar reserva */
+
 .accion-reserva {
     text-align: center;
     margin: var(--espacio-grande) 0 0;
@@ -953,19 +1098,20 @@ form input[type="checkbox"] + label {
 .accion-reserva .boton-principal {
     width: auto;
     max-width: 100%;
-    padding: var(--espacio-mediano) var(--espacio-grande);
+    padding: var(--espacio-mediano);
 }
 
-/* 17. PANEL DE CONTACTO */
+
+/* 21. PANEL LATERAL DE CONTACTO */
 
 .panel-contacto {
-    background-color: var(--blanco);
-    padding: var(--espacio-grande);
+    min-width: 0;
+    padding: var(--espacio-mediano);
 
+    background-color: var(--blanco);
     border: 1px solid var(--borde-suave);
     border-radius: 1rem;
 
-    min-width: 0;
     overflow-wrap: anywhere;
 
     box-shadow: 0 0.3rem 1rem rgba(20, 33, 61, 0.06);
@@ -991,15 +1137,19 @@ form input[type="checkbox"] + label {
 
 .panel-contacto > .boton-principal {
     display: block;
+    width: 100%;
     text-align: center;
 }
 
-/* 18. PIE DE PÁGINA - FLEXBOX */
+
+/* 22. PIE DE PÁGINA - FLEXBOX */
 
 footer {
+    padding: var(--espacio-grande)
+             var(--espacio-mediano);
+
     background-color: var(--azul-noche);
     color: var(--crema);
-    padding: var(--espacio-grande) var(--espacio-mediano);
 }
 
 footer h2,
@@ -1062,15 +1212,21 @@ footer a {
     text-align: center;
 }
 
-/* 19. WHATSAPP FLOTANTE */
+
+/* 23. WHATSAPP FLOTANTE */
 
 .whatsapp-flotante {
     position: fixed;
+
     bottom: var(--espacio-mediano);
     right: var(--espacio-mediano);
+    z-index: 1000;
 
     display: inline-block;
-    padding: var(--espacio-pequeno) var(--espacio-mediano);
+    max-width: calc(100vw - 2rem);
+
+    padding: var(--espacio-pequeno)
+             var(--espacio-mediano);
 
     background-color: var(--verde-ruta);
     color: var(--crema);
@@ -1078,8 +1234,6 @@ footer a {
     border-radius: 2rem;
     font-weight: 600;
     text-decoration: none;
-
-    z-index: 1000;
 }
 
 .whatsapp-flotante:hover,
@@ -1093,53 +1247,205 @@ footer a {
     outline-offset: 3px;
 }
 
-/* =========================================
-   20. RESPONSIVE - TABLETAS
-   DESDE 641px
-   ========================================= */
-
-@media (min-width: 40.0625rem) {
-
-    .contenedor-servicios {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    #pasos-alquiler ol,
-    #beneficios ul {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .informacion-complementaria {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    #horarios ul {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-}
 
 /* =========================================
-   21. RESPONSIVE - DESDE 768px
+   24. TABLET - DESDE 768px
    ========================================= */
 
 @media (min-width: 48rem) {
 
-    /* ENCABEZADO */
+    /* Más espacio para el contenido */
+
+    main {
+        padding: var(--espacio-grande);
+    }
+
+    /* Encabezado horizontal */
+
     header {
         padding: var(--espacio-grande);
     }
 
     .encabezado-contenido {
         flex-direction: row;
+        justify-content: space-between;
         align-items: center;
+    }
+
+    .encabezado-contenido nav {
+        width: auto;
     }
 
     #menu {
         justify-content: flex-end;
+        gap: var(--espacio-mediano);
     }
 
-    /* PIE */
+    /* Portada de dos columnas */
+
+    #quienes-somos {
+        padding: var(--espacio-grande);
+    }
+
+    .portada-grid {
+        grid-template-columns:
+            minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .portada-texto h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Servicios */
+
+    .contenedor-servicios {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: var(--espacio-grande);
+    }
+
+    #servicios article {
+        padding: var(--espacio-grande);
+    }
+
+    /* Rutas en dos columnas */
+
+    .contenedor-rutas {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: var(--espacio-grande);
+    }
+
+    /* Más espacio en tarjetas */
+
+    .contenido-bicicleta,
+    .contenido-ruta {
+        padding: var(--espacio-grande);
+    }
+
+    .contenedor-flota {
+        gap: var(--espacio-grande);
+    }
+
+    /* Pasos y beneficios */
+
+    #pasos-alquiler ol,
+    #beneficios ul {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    #beneficios li {
+        padding: var(--espacio-grande);
+    }
+
+    /* Tarifas en formato de tabla */
+
+    .presentacion-tarifas,
+    .presentacion-reservas,
+    .seccion-tarifas {
+        padding: var(--espacio-grande);
+    }
+
+    .presentacion-tarifas h2,
+    .presentacion-reservas h2 {
+        font-size: 1.8rem;
+    }
+
+    .contenedor-tabla {
+        padding: var(--espacio-mediano);
+    }
+
+    table {
+        display: table;
+        border-collapse: collapse;
+        font-size: 0.875rem;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tbody {
+        display: table-row-group;
+    }
+
+    tbody tr {
+        display: table-row;
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        overflow: visible;
+    }
+
+    thead th,
+    tbody th,
+    tbody td {
+        display: table-cell;
+        padding: var(--espacio-pequeno);
+        border: 1px solid var(--gris-asfalto);
+
+        text-align: left;
+        vertical-align: middle;
+        overflow-wrap: normal;
+    }
+
+    thead th {
+        background-color: var(--azul-noche);
+        color: var(--crema);
+    }
+
+    tbody th[scope="row"] {
+        background-color: var(--crema);
+        color: var(--azul-noche);
+        text-align: left;
+    }
+
+    tbody td::before {
+        display: none;
+    }
+
+    /* Información adicional */
+
+    .informacion-complementaria {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: var(--espacio-grande);
+    }
+
+    .tarjeta-informacion {
+        padding: var(--espacio-grande);
+    }
+
+    /* Horarios */
+
+    #horarios ul {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    /* Formulario */
+
+    #formulario-reserva,
+    #horarios,
+    .panel-contacto {
+        padding: var(--espacio-grande);
+    }
+
+    form fieldset {
+        padding: var(--espacio-grande);
+    }
+
+    .accion-reserva .boton-principal {
+        padding: var(--espacio-mediano)
+                 var(--espacio-grande);
+    }
+
+    /* Footer horizontal */
+
     footer {
         padding: var(--espacio-grande);
     }
@@ -1154,48 +1460,57 @@ footer a {
         width: auto;
     }
 
-    /* PORTADA */
-    .portada-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    /* RUTAS */
-    .contenedor-rutas {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
 }
 
-/* =========================================
-   22. RESPONSIVE - ESCRITORIO
-   DESDE 1024px
-   ========================================= */
 
-@media (min-width: 64rem) {
+/* 25. ESCRITORIO - DESDE 1200px */
 
-    /* TRES RUTAS EN UNA SOLA FILA */
+@media (min-width: 75rem) {
+
+    /* Galería con tres rutas en fila */
+
     .contenedor-rutas {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
     }
 
-    /* RESERVAS: FORMULARIO 2/3, CONTACTO 1/3 */
+    /* Reservas: formulario 2/3,
+       contacto 1/3 */
+
     .layout-reservas {
         grid-template-columns:
             minmax(0, 2fr) minmax(0, 1fr);
     }
 
-    /* DOCUMENTO Y CELULAR */
+    /* Documento y celular juntos */
+
     .fila-campos {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
-    /* PASOS Y BENEFICIOS */
+    /* Pasos y beneficios */
+
     #pasos-alquiler ol {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
     }
 
     #beneficios ul {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    /* Tablas más amplias */
+
+    table {
+        font-size: 1rem;
+    }
+
+    thead th,
+    tbody th,
+    tbody td {
+        padding: var(--espacio-mediano);
     }
 
 }

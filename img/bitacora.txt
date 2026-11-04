@@ -369,6 +369,26 @@ Ancho 768 px — Tableta  - Comportamiento esperado: Portada en dos columnas, ru
 Ancho 900 px — Escritorio pequeño  - Comportamiento esperado: Flota adaptable, con aproximadamente dos columnas.
 Ancho 1280 px — Escritorio  - Comportamiento esperado: CTres rutas en fila, portada en dos columnas y reservas en proporción 2:1.
 
+MiniReto 4 (semana 2). Diseño responsive con enfoque mobile-first
+Se reorganizó styles.css con un enfoque mobile-first. Los estilos base representan la versión móvil y 
+se utilizaron media queries de min-width en 768 px y 1200 px para reorganizar el contenido en pantallas más grandes.
+
+Problema 1: Encabezado desorganizado en celulares.
+Solución: Se utilizó Flexbox para colocar la marca encima del menú en móviles. En tabletas y computadores 
+se organizan horizontalmente.
+
+Problema 2: Imágenes demasiado grandes o recortadas.
+Solución: Se utilizó max-width: 100% y height: auto para evitar que las imágenes superen el ancho de sus contenedores. 
+En las tarjetas se utilizó object-fit: contain para mostrar completas las bicicletas.
+
+Problema 3: Tablas de tarifas difíciles de leer en celulares.
+Solución: Se creó una presentación vertical para cada bicicleta y recorrido en pantallas móviles, conservando 
+todos los precios y datos. Desde 768 px se recupera la presentación tradicional en filas y columnas.
+
+Problema 4: Contenido apretado en pantallas pequeñas.
+Solución: Se organizaron las secciones en una sola columna para móviles y se utilizaron Grid y Flexbox para 
+distribuirlas en pantallas mayores.
+
 
 
 
