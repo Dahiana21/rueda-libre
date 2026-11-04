@@ -962,4 +962,141 @@ footer a {
         flex: 1 1 0;
     }
 
+    
+/* =========================================
+   MINIRETO 2 - NUESTRA FLOTA DE BICICLETAS
+   CSS GRID + FLEXBOX
+   ========================================= */
+
+/* 1. SECCIÓN NUESTRA FLOTA */
+
+.pagina-inicio #flota {
+    margin-bottom: var(--espacio-extra-grande);
+}
+
+.pagina-inicio #flota > h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: var(--espacio-mediano);
+}
+
+.descripcion-flota {
+    max-width: 42rem;
+    margin: 0 auto var(--espacio-grande);
+    text-align: center;
+    line-height: 1.7;
+}
+
+/* 2. CUADRÍCULA AUTOMÁTICA CON CSS GRID */
+
+.contenedor-flota {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+
+    gap: var(--espacio-grande);
+
+    align-items: stretch;
+}
+
+/* 3. TARJETA CON FLEXBOX EN COLUMNA */
+
+.tarjeta-bicicleta {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    min-width: 0;
+
+    background-color: var(--blanco);
+
+    border: 1px solid var(--borde-suave);
+    border-radius: 1rem;
+
+    overflow: hidden;
+
+    box-shadow: 0 0.3rem 1rem
+        rgba(20, 33, 61, 0.08);
+}
+
+/* 4. IMAGEN DE LA BICICLETA */
+
+.tarjeta-bicicleta > img {
+    display: block;
+
+    width: 100%;
+    height: 11rem;
+
+    object-fit: contain;
+    object-position: center;
+    padding: 1rem;
+
+    background-color: var(--verde-suave);
+}
+
+/* 5. CONTENIDO INTERNO CON FLEXBOX */
+
+.contenido-bicicleta {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    flex: 1;
+
+    padding: var(--espacio-grande);
+}
+
+/* 6. NOMBRE DEL MODELO */
+
+.contenido-bicicleta h3 {
+    color: var(--verde-ruta);
+
+    margin-top: 0;
+    margin-bottom: var(--espacio-mediano);
+
+    font-size: 1.25rem;
+}
+
+/* 7. DESCRIPCIÓN */
+
+.contenido-bicicleta > p {
+    line-height: 1.7;
+    margin-top: 0;
+    margin-bottom: var(--espacio-mediano);
+}
+
+/* 8. PRECIO POR HORA */
+
+.contenido-bicicleta .precio-bicicleta {
+    color: var(--azul-noche);
+
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    margin-top: var(--espacio-mediano);
+    margin-bottom: var(--espacio-mediano);
+}
+
+.precio-bicicleta span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--gris-asfalto);
+}
+
+/* 9. BOTÓN SIEMPRE AL FINAL */
+
+.contenido-bicicleta .boton-principal {
+    display: block;
+
+    width: 100%;
+
+    margin-top: auto;
+
+    text-align: center;
+}
+
+
+
 }

@@ -332,11 +332,17 @@ Como mejoras futuras, implementaría un sistema que permita almacenar y gestiona
 integrar pagos en línea y enviar confirmaciones automáticas a los clientes.
 
 MiniReto 1 (semana 2) — Encabezado y pie de página con Flexbox
-
 Se reorganizó el encabezado de las tres páginas utilizando Flexbox, agrupando el logotipo y el nombre de Rueda Libre a un lado y el menú de navegación al otro.
-
 También se implementó flex-wrap para permitir que el menú se adapte a pantallas pequeñas y gap para separar uniformemente los enlaces.
-
 El pie de página se dividió en tres bloques: marca, contacto y horarios. Se aplicó un enfoque mobile-first para mostrar los bloques verticalmente en celulares y en fila en pantallas amplias.
-
 Propiedades utilizadas: display: flex, flex-direction,justify-content, align-items, flex-wrap y gap.
+
+MiniReto 2 (semana 2): Catálogo de bicicletas con Grid y Flexbox
+
+Se agregó la sección Nuestra flota con siete modelos de bicicletas. Cada tarjeta contiene una imagen, nombre, descripción, precio por hora y enlace de reserva.
+Se utilizó CSS Grid con repeat(), auto-fit, minmax() y fr para distribuir las tarjetas automáticamente sin utilizar media queries.
+También se aplicó Flexbox en columna para organizar el contenido de las tarjetas y mantener los botones de reserva alineados en la parte inferior.
+Grid se utilizó para distribuir las tarjetas en filas y columnas; Flexbox se utilizó para organizar los elementos internos verticalmente.
+
+
+
