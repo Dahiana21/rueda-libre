@@ -519,6 +519,69 @@ Archivos migrados:
 
 Archivo de pruebas de los MiniRetos anteriores:** `pruebas/catalogo-bootstrap.html`
 
+MiniReto 9 
+Se reemplazó el encabezado anterior de Inicio, Tarifas y Reservas por el componente navbar de Bootstrap.
+Se implementaron las clases navbar-expand-lg, navbar-toggler, collapse, navbar-collapse y nav-link.
+El menú permanece colapsado en pantallas inferiores a 992 px y muestra sus enlaces directamente desde ese ancho.
+Se configuraron data-bs-toggle, data-bs-target, aria-controls y aria-expanded. Cada botón apunta al contenedor 
+#menuPrincipal de su página.
+La página activa se identifica mediante active y aria-current="page", reemplazando la clase anterior activo.
+También se unificaron los botones mediante btn-primary, btn-outline-primary y los tamaños btn-lg y btn-sm.
+
+Resultado: El código incorpora una navegación adaptable a dispositivos móviles y botones consistentes para reservar o consultar 
+información.
+
+Conclusión: La navbar de Bootstrap permite reducir el espacio ocupado por el menú en celulares y facilita mantener una 
+navegación coherente entre las tres páginas.
+
+MiniReto 10
+Se organizaron los siete modelos de la flota con card, card-img-top, card-body, card-title y card-text.
+Se mantuvo la grilla responsive existente y se utilizó h-100 junto con d-flex flex-column y mt-auto para igualar 
+la altura de las tarjetas y alinear sus botones.
+También se presentaron las tres rutas mediante cards con imágenes de proporción 16:9.
+Se incorporó un carrusel con las siguientes promociones:
+Martes 2x1 en bicicletas urbanas, 20 % de descuento en eléctricas de lunes a jueves, Recorrido guiado gratis por cumpleaños.
+El carrusel incorpora carousel-inner, carousel-item, active, data-bs-ride y controles anterior y siguiente.
+Se agregaron textos alternativos a las imágenes, nombres accesibles para los controles mediante visually-hidden y un 
+botón adicional para pausar el avance automático.
+
+Resultado: El código presenta la flota y las rutas de manera consistente e incorpora las promociones en un componente interactivo.
+
+Conclusión: Los componentes de Bootstrap permiten mejorar la presentación visual, reutilizar estructuras y mostrar promociones 
+sin construir un carrusel completamente desde cero.
+
+MiniReto 11
+Se aplicaron las clases form-label, form-control, form-select, form-check, form-check-input y form-check-label.
+Se incorporaron las clases needs-validation e invalid-feedback, junto con el atributo novalidate y el script oficial 
+de validación de Bootstrap.
+Se conservaron las restricciones HTML como required, pattern, minlength, maxlength, min y max.
+Se agregó un mensaje específico para cada campo obligatorio, indicando cómo corregir los datos.
+Antes del formulario se incorporó una alerta informativa que recuerda presentar el documento de identidad original. 
+La alerta utiliza alert-dismissible y data-bs-dismiss.
+También se creó el modal «Políticas de alquiler» con las cinco condiciones entregadas por el cliente y botones para 
+abrirlo y cerrarlo.
+
+Resultado: El formulario dispone de validación visual y componentes informativos sin necesidad de abandonar la página.
+La demostración evita afirmar que una solicitud ha sido registrada: todavía no existe un servidor de reservas.
+
+Conclusión: La validación visual y los componentes de Bootstrap mejoran la claridad de las instrucciones y ayudan a reducir 
+errores de diligenciamiento.
+
+MiniReto 12
+Se definieron variables CSS personalizadas para los colores, fuentes y bordes de Bootstrap.
+Se configuró el Verde Ruta #1E7A4F como color primario y su equivalente RGB 30, 122, 79.
+Se personalizaron los botones principales con estados normal, hover y active. También se creó la variante btn-naranja 
+con Naranja Pedal #F39A2B y texto Azul Noche #14213D.
+Se incorporaron clases complementarias como portada-marca, titulo-seccion, tarjeta-marca, beneficio-marca y pie-marca.
+Se integró Bootstrap Icons mediante CDN y se utilizaron íconos en la navegación, beneficios, datos de contacto y WhatsApp.
+Los íconos decorativos incluyen aria-hidden="true" y el botón flotante de WhatsApp dispone de aria-label.
+El CSS propio se carga después de Bootstrap, sin modificar los archivos del framework.
+
+Resultado: El código de la versión 2.0 utiliza componentes de Bootstrap adaptados a la identidad visual de Rueda Libre.
+
+Conclusión: Bootstrap resulta útil para crear estructuras y componentes reutilizables, mientras que el CSS personalizado 
+permite conservar la identidad visual del negocio. La combinación de ambas tecnologías es adecuada para mantener y ampliar Rueda Libre.
+
 
 
 

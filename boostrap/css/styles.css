@@ -1,9 +1,8 @@
 
-/* RUEDA LIBRE V2.0-BETA
-   IDENTIDAD VISUAL + BOOTSTRAP
- */
+/*RUEDA LIBRE V2.0
+   IDENTIDAD VISUAL PERSONALIZADA*/
 
-/* 1. VARIABLES */
+/* 1. VARIABLES DE MARCA Y BOOTSTRAP */
 
 :root {
     --verde-ruta: #1E7A4F;
@@ -17,21 +16,36 @@
 
     --fuente-titulos: 'Montserrat', Arial, sans-serif;
     --fuente-texto: 'Open Sans', Arial, sans-serif;
+
+    /* Personalización de Bootstrap */
+    --bs-primary: #1E7A4F;
+    --bs-primary-rgb: 30, 122, 79;
+
+    --bs-body-font-family: 'Open Sans', Arial, sans-serif;
+    --bs-body-color: #14213D;
+    --bs-body-bg: #FAF6EF;
+
+    --bs-link-color: #1E7A4F;
+    --bs-link-color-rgb: 30, 122, 79;
+    --bs-link-hover-color: #14213D;
+    --bs-link-hover-color-rgb: 20, 33, 61;
+
+    --bs-border-radius: 0.65rem;
+    --bs-border-radius-lg: 1rem;
+    --bs-border-radius-xl: 1.3rem;
+
+    --bs-primary-bg-subtle: #EAF3ED;
+    --bs-primary-text-emphasis: #145536;
+    --bs-focus-ring-color: rgba(30, 122, 79, 0.3);
 }
 
 /* 2. ESTILOS GENERALES */
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
 body {
-    background: var(--crema);
+    background-color: var(--crema);
     color: var(--azul-noche);
     font-family: var(--fuente-texto);
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,18 +56,19 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
     color: var(--verde-ruta);
-    font-weight: 600;
+}
+
+a:hover {
+    color: var(--azul-noche);
 }
 
 img {
     max-width: 100%;
-    height: auto;
 }
 
-main {
-    max-width: 75rem;
-    margin-inline: auto;
-    padding-block: 1rem 2rem;
+:focus-visible {
+    outline: 3px solid var(--naranja-pedal);
+    outline-offset: 3px;
 }
 
 /* 3. ACCESIBILIDAD */
@@ -63,407 +78,300 @@ main {
     top: 0;
     left: -9999px;
     z-index: 2000;
-    background: var(--crema);
+
     padding: 1rem;
+    background-color: var(--crema);
+    color: var(--azul-noche);
+    font-weight: 700;
 }
 
 .saltar-contenido:focus {
     top: 1rem;
     left: 1rem;
-    outline: 3px solid var(--azul-noche);
 }
 
-/* 4. ENCABEZADO */
+/* 4. NAVBAR */
 
-header,
-footer {
-    background: var(--azul-noche);
+.encabezado-marca {
+    background-color: var(--azul-noche);
+}
+
+.encabezado-marca .navbar-brand {
     color: var(--crema);
-    padding: 1rem;
-}
-
-.encabezado-contenido {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    max-width: 75rem;
-    margin: auto;
-}
-
-.marca-sitio {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.logo-inicio,
-.logo-tarifas,
-.logo-reservas {
-    width: 4.5rem;
-    border-radius: .75rem;
-}
-
-.marca-sitio h1 {
-    color: var(--crema);
-    font-size: clamp(1.35rem, 4vw, 2rem);
-    margin: 0;
-}
-
-.encabezado-contenido nav {
-    max-width: 100%;
-}
-
-/* 5. MENÚ */
-
-#menu {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#menu a {
-    display: block;
-    padding: .5rem;
-    color: var(--crema);
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-#menu a.activo,
-#menu a:hover,
-#menu a:focus {
-    background: var(--naranja-pedal);
-    color: var(--azul-noche);
-}
-
-#menu a:focus-visible {
-    outline: 3px solid var(--crema);
-    outline-offset: 3px;
-}
-
-/* 6. FOOTER */
-
-.pie-contenido {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    max-width: 75rem;
-    margin: auto;
-}
-
-.pie-bloque {
-    flex: 1 1 0;
-    min-width: 0;
-    overflow-wrap: anywhere;
-}
-
-footer h2,
-footer h3,
-footer a {
-    color: var(--crema);
-}
-
-.pie-bloque h2,
-.pie-bloque h3 {
-    margin: 0 0 .5rem;
-}
-
-.pie-bloque h3 {
-    margin-top: 1rem;
-    font-size: 1rem;
-}
-
-.pie-bloque p {
-    margin: 0 0 .5rem;
-}
-
-.pie-bloque a:hover,
-.pie-bloque a:focus {
-    color: var(--naranja-pedal);
-}
-
-.pie-derechos {
-    max-width: 75rem;
-    margin: 2rem auto 0;
-    padding-top: 1rem;
-    border-top: 1px solid var(--gris-asfalto);
-    text-align: center;
-}
-
-/* 7. BOTONES DE MARCA */
-
-.boton-principal {
-    display: inline-block;
-    max-width: 100%;
-    padding: 1rem;
-    color: var(--crema);
-    background: var(--verde-ruta);
-    border: 2px solid var(--verde-ruta);
-    border-radius: 8px;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.boton-principal:hover,
-.boton-principal:focus-visible {
-    background: var(--naranja-pedal);
-    border-color: var(--naranja-pedal);
-    color: var(--azul-noche);
-}
-
-.boton-principal:focus-visible {
-    outline: 3px solid var(--azul-noche);
-    outline-offset: 3px;
-}
-
-.boton-secundario {
-    display: inline-block;
-    max-width: 100%;
-    padding: 1rem;
-    background: var(--naranja-pedal);
-    color: var(--azul-noche);
-    border-radius: 8px;
-    text-decoration: none;
-}
-
-.boton-secundario:hover {
-    background: var(--verde-ruta);
-    color: var(--blanco);
-}
-
-/* 8. COLORES DE LAS RUTAS */
-
-#rutas .titulo-ruta {
-    color: var(--verde-ruta);
-}
-
-#rutas .boton-ruta {
-    --bs-btn-bg: var(--naranja-pedal);
-    --bs-btn-border-color: var(--naranja-pedal);
-    --bs-btn-color: var(--azul-noche);
-
-    --bs-btn-hover-bg: var(--verde-ruta);
-    --bs-btn-hover-border-color: var(--verde-ruta);
-    --bs-btn-hover-color: var(--blanco);
-
-    --bs-btn-active-bg: var(--verde-ruta);
-    --bs-btn-active-border-color: var(--verde-ruta);
-    --bs-btn-active-color: var(--blanco);
-}
-
-/* 9. INICIO */
-
-.pagina-inicio main > section {
-    margin-bottom: 3rem;
-}
-
-#quienes-somos {
-    background: var(--verde-suave);
-    border-radius: 1rem;
-}
-
-/* 10. SERVICIOS */
-
-#servicios > h2,
-#pasos-alquiler > h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-#servicios article {
-    position: relative;
-    min-width: 0;
-    background: var(--blanco);
-    border: 1px solid var(--borde-suave);
-    border-radius: 1rem;
-    padding: 1rem;
-    box-shadow: 0 .3rem 1rem rgba(20, 33, 61, .08);
-}
-
-#servicios article h3 {
-    color: var(--verde-ruta);
-}
-
-#servicios article img {
-    max-width: 100%;
-    height: auto;
-    border-radius: .75rem;
-}
-
-#servicios .tarjeta-nueva {
-    padding-top: 3rem;
-}
-
-.etiqueta-nuevo {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: var(--naranja-pedal);
-    color: var(--azul-noche);
-    padding: .5rem 1rem;
-    border-radius: 0 1rem 0 1rem;
-}
-
-#servicios .tarjeta-taller {
-    display: flex;
-    flex-direction: column;
-}
-
-#servicios .imagen-taller {
-    width: 100%;
-    height: 12rem;
-    object-fit: cover;
-    margin-top: auto;
-}
-
-/* 11. IMÁGENES DE FLOTA */
-
-#flota .foto-flota {
-    width: 100%;
-    height: 11rem;
-    object-fit: contain;
-    background: var(--verde-suave);
-    padding: .75rem;
-}
-
-/* 12. PASOS PARA ALQUILAR */
-
-#pasos-alquiler {
-    text-align: center;
-}
-
-#pasos-alquiler ol {
-    counter-reset: paso;
-}
-
-#pasos-alquiler .paso-tarjeta {
-    counter-increment: paso;
-    padding: 2rem 1rem;
-    border-radius: 1rem;
-    background: var(--verde-suave);
-    border: 1px solid var(--borde-suave);
-}
-
-#pasos-alquiler .paso-tarjeta::before {
-    content: counter(paso);
-    display: grid;
-    place-items: center;
-    width: 3rem;
-    height: 3rem;
-    margin: 0 auto 1rem;
-    background: var(--verde-ruta);
-    color: var(--crema);
-    border-radius: 50%;
+    font-family: var(--fuente-titulos);
     font-weight: 700;
 }
 
-/* 13. PRESENTACIÓN DE TARIFAS Y RESERVAS */
+.encabezado-marca .navbar-brand:hover,
+.encabezado-marca .navbar-brand:focus {
+    color: var(--blanco);
+}
 
-.presentacion-tarifas,
-.presentacion-reservas,
-.seccion-tarifas {
-    padding: 1rem;
+.encabezado-marca .nav-link {
+    color: var(--crema);
+    font-weight: 600;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+}
+
+.encabezado-marca .nav-link:hover,
+.encabezado-marca .nav-link:focus,
+.encabezado-marca .nav-link.active {
+    color: var(--azul-noche);
+    background-color: var(--naranja-pedal);
+}
+
+.encabezado-marca .navbar-toggler {
+    border-color: var(--crema);
+}
+
+.encabezado-marca .navbar-toggler:focus-visible {
+    box-shadow: 0 0 0 0.25rem rgba(243, 154, 43, 0.4);
+}
+
+/* 5. BOTÓN PRINCIPAL VERDE */
+
+.btn-primary {
+    --bs-btn-color: #FFFFFF;
+    --bs-btn-bg: #1E7A4F;
+    --bs-btn-border-color: #1E7A4F;
+
+    --bs-btn-hover-color: #FFFFFF;
+    --bs-btn-hover-bg: #145536;
+    --bs-btn-hover-border-color: #145536;
+
+    --bs-btn-focus-shadow-rgb: 30, 122, 79;
+
+    --bs-btn-active-color: #FFFFFF;
+    --bs-btn-active-bg: #103F29;
+    --bs-btn-active-border-color: #103F29;
+
+    --bs-btn-disabled-color: #FFFFFF;
+    --bs-btn-disabled-bg: #1E7A4F;
+    --bs-btn-disabled-border-color: #1E7A4F;
+}
+
+/* 6. BOTÓN DE CONSULTA */
+
+.btn-outline-primary {
+    --bs-btn-color: #1E7A4F;
+    --bs-btn-border-color: #1E7A4F;
+
+    --bs-btn-hover-color: #FFFFFF;
+    --bs-btn-hover-bg: #1E7A4F;
+    --bs-btn-hover-border-color: #1E7A4F;
+
+    --bs-btn-focus-shadow-rgb: 30, 122, 79;
+
+    --bs-btn-active-color: #FFFFFF;
+    --bs-btn-active-bg: #145536;
+    --bs-btn-active-border-color: #145536;
+}
+
+/* 7. BOTÓN PROPIO NARANJA PEDAL */
+
+.btn-naranja {
+    --bs-btn-color: #14213D;
+    --bs-btn-bg: #F39A2B;
+    --bs-btn-border-color: #F39A2B;
+
+    --bs-btn-hover-color: #FFFFFF;
+    --bs-btn-hover-bg: #145536;
+    --bs-btn-hover-border-color: #145536;
+
+    --bs-btn-focus-shadow-rgb: 243, 154, 43;
+
+    --bs-btn-active-color: #FFFFFF;
+    --bs-btn-active-bg: #103F29;
+    --bs-btn-active-border-color: #103F29;
+
+    font-weight: 700;
+}
+
+/* 8. PORTADA PROPIA */
+
+.portada-marca {
+    background-color: var(--verde-suave);
+    border: 1px solid var(--borde-suave);
+    border-radius: 1.3rem;
+}
+
+/* 9. TÍTULOS DE SECCIÓN */
+
+.titulo-seccion {
+    color: var(--verde-ruta);
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+}
+
+/* 10. TARJETAS */
+
+.tarjeta-marca {
+    border: 1px solid var(--borde-suave);
     border-radius: 1rem;
-    background: var(--verde-suave);
+    overflow: hidden;
+    background-color: var(--blanco);
+    box-shadow: 0 0.3rem 1rem rgba(20, 33, 61, 0.08);
 }
 
-.presentacion-tarifas,
-.presentacion-reservas {
+.tarjeta-marca .card-title {
+    color: var(--verde-ruta);
+}
+
+.tarjeta-marca .card-body {
+    gap: 0.4rem;
+}
+
+.tarjeta-marca .card-text {
+    color: var(--azul-noche);
+}
+
+.foto-flota {
+    width: 100%;
+    height: 12rem;
+    object-fit: contain;
+    background-color: var(--verde-suave);
+    padding: 0.75rem;
+}
+
+/* 11. CARRUSEL */
+
+.carrusel-marca {
+    background-color: var(--azul-noche);
+}
+
+.imagen-promocion {
+    height: clamp(18rem, 40vw, 29rem);
+    object-fit: contain;
+    background-color: var(--azul-noche);
+}
+
+.caption-marca {
+    left: 15%;
+    right: 15%;
+    bottom: 2.5rem;
+
+    background-color: rgba(20, 33, 61, 0.95);
+    color: var(--blanco);
+    border-radius: 1rem;
+    padding: 1rem 2.5rem;
+}
+
+.caption-marca h3 {
+    color: var(--blanco);
+}
+
+.carrusel-marca .carousel-control-prev,
+.carrusel-marca .carousel-control-next {
+    width: 12%;
+}
+
+.carrusel-marca .carousel-indicators {
+    margin-bottom: 0.4rem;
+}
+
+/* 12. BENEFICIOS */
+
+.beneficio-marca {
+    background-color: var(--verde-suave);
+    border: 1px solid var(--borde-suave);
+    border-radius: 1rem;
+}
+
+.beneficio-marca .bi {
+    color: var(--verde-ruta);
+}
+
+.beneficio-marca h3 {
+    color: var(--azul-noche);
+}
+
+/* 13. PASOS PARA ALQUILAR */
+
+.paso-marca {
     text-align: center;
-    margin-bottom: 2rem;
+    background-color: var(--verde-suave);
+    border: 1px solid var(--borde-suave);
+    border-radius: 1rem;
 }
 
-.presentacion-tarifas h2,
-.presentacion-reservas h2 {
-    margin: 0 0 1rem;
+.numero-paso {
+    display: grid;
+    place-items: center;
+
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto 1rem;
+
+    border-radius: 50%;
+    background-color: var(--verde-ruta);
+    color: var(--blanco);
+    font-weight: 700;
+    font-size: 1.2rem;
 }
 
-.presentacion-tarifas p {
+.paso-marca p {
     margin-bottom: 0;
 }
 
-/* 14. TABLAS */
+/* 14. FRANJA DE LLAMADA A LA ACCIÓN */
 
-.seccion-tarifas {
-    height: 100%;
+.franja-marca {
+    background-color: var(--azul-noche);
+    color: var(--blanco);
 }
 
-.seccion-tarifas h2 {
-    font-size: 1.3rem;
-    text-align: center;
-    margin-bottom: 1rem;
+.franja-marca h2 {
+    color: var(--blanco);
 }
 
-.contenedor-tabla {
-    background: var(--blanco);
+/* 15. TABLAS DE TARIFAS */
+
+.panel-marca {
+    background-color: var(--blanco);
     border: 1px solid var(--borde-suave);
     border-radius: 1rem;
-    padding: .5rem;
+    box-shadow: 0 0.3rem 1rem rgba(20, 33, 61, 0.06);
+}
+
+.tabla-contenedor {
+    width: 100%;
     min-width: 0;
 }
 
 .tabla-rueda {
     width: 100%;
-    font-size: .9rem;
     border-collapse: collapse;
-    margin: 0;
+    font-size: 0.875rem;
 }
 
 .tabla-rueda caption {
     caption-side: top;
-    padding-bottom: 1rem;
     color: var(--gris-asfalto);
-    text-align: left;
+    padding-bottom: 0.75rem;
 }
 
 .tabla-rueda th,
 .tabla-rueda td {
-    padding: .5rem;
+    padding: 0.45rem;
     border: 1px solid var(--gris-asfalto);
     overflow-wrap: anywhere;
 }
 
 .tabla-rueda thead th {
-    background: var(--azul-noche);
-    color: var(--crema);
+    background-color: var(--azul-noche);
+    color: var(--blanco);
 }
 
 .tabla-rueda tbody th {
-    background: var(--verde-suave);
+    background-color: var(--verde-suave);
+    color: var(--azul-noche);
 }
 
-.accion-tarifas {
-    text-align: center;
-    margin-top: 1rem;
-}
-
-/* 15. INFORMACIÓN COMPLEMENTARIA */
-
-.tarjeta-informacion {
-    background: var(--blanco);
-    border: 1px solid var(--borde-suave);
-    border-radius: 1rem;
-    padding: 1.25rem;
-    height: 100%;
-    box-shadow: 0 .3rem 1rem rgba(20, 33, 61, .08);
-}
-
-.tarjeta-informacion h2,
-.tarjeta-informacion h3 {
-    font-size: 1.2rem;
-    color: var(--verde-ruta);
-}
-
-/* 16. TABLAS RESPONSIVE EN MÓVIL */
+/* 16. TABLAS RESPONSIVE */
 
 @media (max-width: 767.98px) {
+
     .tabla-rueda thead {
         display: none;
     }
@@ -477,21 +385,20 @@ footer a {
 
     .tabla-rueda tbody tr {
         border: 1px solid var(--borde-suave);
+        border-radius: 0.75rem;
         margin-bottom: 1rem;
-        border-radius: .75rem;
         overflow: hidden;
     }
 
     .tabla-rueda tbody th {
-        background: var(--azul-noche);
-        color: var(--crema);
-        text-align: center;
+        background-color: var(--azul-noche);
+        color: var(--blanco);
     }
 
     .tabla-rueda tbody td {
         display: flex;
         justify-content: space-between;
-        gap: .75rem;
+        gap: 0.75rem;
         border: 0;
         border-bottom: 1px solid var(--borde-suave);
     }
@@ -501,193 +408,196 @@ footer a {
         font-weight: 700;
         color: var(--azul-noche);
     }
+
 }
 
-/* 17. HORARIOS DE RESERVAS */
+/* 17. FORMULARIO */
 
-#horarios {
-    background: var(--blanco);
+#formulario-reserva .form-label {
+    font-weight: 600;
+    color: var(--azul-noche);
+}
+
+#formulario-reserva fieldset {
     border: 1px solid var(--borde-suave);
-    border-radius: 1rem;
-    padding: 1rem;
-    margin-bottom: 2rem;
-}
-
-#horarios h2 {
-    text-align: center;
-    color: var(--verde-ruta);
-}
-
-#horarios ul {
-    display: grid;
-    grid-template-columns:
-        repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
-    list-style: none;
-    padding: 0;
-    gap: 1rem;
-    margin: 0;
-}
-
-#horarios li {
-    background: var(--verde-suave);
-    border: 1px solid var(--borde-suave);
-    border-radius: .75rem;
-    padding: .75rem;
-    text-align: center;
-}
-
-/* 18. FORMULARIO */
-
-#formulario-reserva {
-    background: var(--verde-suave);
-    border-radius: 1rem;
+    border-radius: 0.75rem;
     padding: 1rem;
 }
 
-#formulario-reserva > h2,
-#formulario-reserva > p {
-    text-align: center;
-}
-
-form fieldset {
-    min-width: 0;
-    background: var(--blanco);
-    border: 1px solid var(--borde-suave);
-    border-radius: 1rem;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-form legend {
+#formulario-reserva legend {
     float: none;
     width: auto;
-    padding: .5rem 1rem;
-    background: var(--verde-ruta);
-    color: var(--crema);
-    font-family: var(--fuente-titulos);
-    font-size: 1rem;
-    border-radius: .5rem;
-}
-
-form label {
-    display: block;
-    margin-bottom: .3rem;
-    font-weight: 600;
-}
-
-form fieldset p {
-    margin-bottom: 1rem;
-}
-
-form small {
-    display: block;
-    color: var(--gris-asfalto);
-}
-
-form input.form-control,
-form select.form-select,
-form textarea.form-control {
-    background: var(--crema);
-    color: var(--azul-noche);
-    border: 2px solid var(--gris-asfalto);
-}
-
-form input:focus-visible,
-form select:focus-visible,
-form textarea:focus-visible {
-    outline: 2px solid var(--naranja-pedal);
-    outline-offset: 2px;
-}
-
-form input[type="checkbox"] + label {
-    display: inline;
-    margin-left: .5rem;
-}
-
-form input[type="checkbox"] {
-    accent-color: var(--verde-ruta);
-}
-
-form .form-control,
-form .form-select {
-    max-width: 100%;
-}
-
-.accion-reserva {
-    text-align: center;
-}
-
-/* 19. CONTACTO DE RESERVAS */
-
-.panel-contacto {
-    min-width: 0;
-    background: var(--blanco);
-    border: 1px solid var(--borde-suave);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    overflow-wrap: anywhere;
-    box-shadow: 0 .3rem 1rem rgba(20, 33, 61, .08);
-}
-
-.panel-contacto h2 {
+    padding: 0 0.25rem;
     color: var(--verde-ruta);
-    font-size: 1.5rem;
+    font-family: var(--fuente-titulos);
 }
 
-.panel-contacto h3 {
-    font-size: 1rem;
+#formulario-reserva .form-control,
+#formulario-reserva .form-select {
+    border-color: var(--gris-asfalto);
+    background-color: var(--crema);
 }
 
-.dato-contacto {
-    margin-block: 1.25rem;
+#formulario-reserva .form-control:focus,
+#formulario-reserva .form-select:focus {
+    border-color: var(--verde-ruta);
+    box-shadow: 0 0 0 0.2rem rgba(30, 122, 79, 0.25);
 }
 
-/* 20. WHATSAPP */
+/* Conservar señales de validación visual */
+#formulario-reserva .was-validated .form-control:invalid,
+#formulario-reserva .was-validated .form-select:invalid {
+    border-color: #B42318;
+}
+
+#formulario-reserva .was-validated .form-control:valid,
+#formulario-reserva .was-validated .form-select:valid {
+    border-color: var(--verde-ruta);
+}
+
+/* 18. ALERTA DE MARCA */
+
+.alert-primary {
+    --bs-alert-color: #14213D;
+    --bs-alert-bg: #EAF3ED;
+    --bs-alert-border-color: #1E7A4F;
+    --bs-alert-link-color: #145536;
+}
+
+/* 19. MODAL */
+
+.modal-header {
+    background-color: var(--verde-suave);
+}
+
+.modal-title {
+    color: var(--verde-ruta);
+}
+
+.modal-content {
+    border-radius: 1rem;
+}
+
+/* 20. PIE DE PÁGINA */
+
+.pie-marca {
+    background-color: var(--azul-noche);
+    color: var(--blanco);
+}
+
+.pie-marca h2,
+.pie-marca h3 {
+    color: var(--blanco);
+}
+
+.pie-marca a {
+    color: var(--blanco);
+    text-decoration: underline;
+}
+
+.pie-marca a:hover,
+.pie-marca a:focus-visible {
+    color: var(--naranja-pedal);
+}
+
+.pie-marca hr {
+    border-color: var(--crema);
+    opacity: 0.5;
+}
+
+/* 21. WHATSAPP */
 
 .whatsapp-flotante {
     position: fixed;
-    bottom: 1rem;
     right: 1rem;
-    z-index: 1000;
-    max-width: calc(100vw - 2rem);
-    display: inline-block;
-    background: var(--verde-ruta);
-    color: var(--crema);
-    padding: .5rem 1rem;
-    border-radius: 2rem;
+    bottom: 1rem;
+    z-index: 1050;
+
+    display: grid;
+    place-items: center;
+
+    width: 3.3rem;
+    height: 3.3rem;
+
+    background-color: var(--verde-ruta);
+    color: var(--blanco);
+    border: 2px solid var(--blanco);
+    border-radius: 50%;
+
+    font-size: 1.5rem;
     text-decoration: none;
+    box-shadow: 0 0.3rem 1rem rgba(20, 33, 61, 0.2);
 }
 
 .whatsapp-flotante:hover,
-.whatsapp-flotante:focus {
-    background: var(--naranja-pedal);
+.whatsapp-flotante:focus-visible {
+    background-color: var(--naranja-pedal);
     color: var(--azul-noche);
 }
 
-/* 21. ENCABEZADO Y FOOTER RESPONSIVE */
+/* 22. AJUSTES MÓVILES */
 
-@media (min-width: 768px) {
-    header,
-    footer {
-        padding: 2rem;
+@media (max-width: 575.98px) {
+
+    .caption-marca {
+        left: 13%;
+        right: 13%;
+        bottom: 1.5rem;
+        padding: 0.7rem 1rem;
     }
 
-    .encabezado-contenido {
-        flex-direction: row;
-        justify-content: space-between;
+    .caption-marca h3 {
+        font-size: 1rem;
     }
 
-    #menu {
-        justify-content: flex-end;
+    .caption-marca p {
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
     }
 
-    .pie-contenido {
-        flex-direction: row;
+    .imagen-promocion {
+        height: 20rem;
     }
-}
 
-/* 22. PREVENIR DESBORDES */
+    .whatsapp-flotante {
+        right: 0.75rem;
+        bottom: 0.75rem;
+    }
 
-.row > * {
-    min-width: 0;
-}
+    #servicios .imagen-servicio {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background-color: var(--verde-suave);
+    padding: 0.75rem;
+    }
+
+    /* ALINEACIÓN DE LAS TARJETAS */
+
+    #servicios .card-body {
+        padding: 1.5rem;
+    }
+
+    #servicios .card-title {
+        color: var(--verde-ruta);
+    }
+
+    #servicios .card-text {
+        color: var(--azul-noche);
+    }
+
+    /* ENLACE DE GOOGLE MAPS */
+
+    #servicios .enlace-servicio {
+        color: var(--verde-ruta);
+        text-decoration: underline;
+        font-weight: 600;
+    }
+
+    #servicios .enlace-servicio:hover,
+    #servicios .enlace-servicio:focus-visible {
+        color: var(--azul-noche);
+    }
+
+    }
