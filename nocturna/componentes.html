@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Kit de componentes de la campaña Rueda Nocturna con Tailwind CSS."
+    >
+
+    <title>Kit de componentes | Rueda Nocturna</title>
+
+    <!-- TAILWIND CSS GENERADO CON CLI -->
+    <link rel="stylesheet" href="src/output.css">
+</head>
+
+<body class="min-h-screen bg-[#120B24] text-[#F5F3FF] antialiased">
+
+    <!-- ENCABEZADO -->
+    <header class="border-b border-[#8B5CF6]/30 bg-[#120B24]">
+
+        <nav
+            class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-5"
+            aria-label="Navegación del kit de componentes"
+        >
+
+            <a
+                href="index.html"
+                class="rounded-lg text-xl font-black text-[#A3E635] hover:text-[#BEF264] focus-visible:ring-4 focus-visible:ring-[#C4B5FD] focus-visible:outline-none"
+            >
+                🚲 Rueda Nocturna
+            </a>
+
+            <a
+                href="index.html"
+                class="rounded-xl border-2 border-[#A3E635] px-5 py-2 font-bold text-[#A3E635] transition-colors hover:bg-[#A3E635] hover:text-[#120B24] focus-visible:ring-4 focus-visible:ring-[#C4B5FD] focus-visible:outline-none"
+            >
+                Volver al inicio
+            </a>
+
+        </nav>
+
+    </header>
+
+    <main class="mx-auto max-w-6xl space-y-16 px-6 py-16">
+
+        <!-- PRESENTACIÓN DEL KIT -->
+        <section class="max-w-3xl space-y-5">
+
+            <span class="text-sm font-bold tracking-widest text-[#C4B5FD] uppercase">
+                Biblioteca visual · Semana 3
+            </span>
+
+            <h1 class="text-4xl font-black tracking-tight text-white sm:text-5xl">
+
+                Kit de componentes
+
+            </h1>
+
+            <p class="text-lg leading-relaxed text-[#DDD6FE]">
+
+                Botones, cards, alertas e inputs diseñados
+                con utilidades de Tailwind CSS para
+                la campaña Rueda Nocturna.
+
+            </p>
+
+        </section>
+
+        <!-- ===================================
+             1. BOTONES
+             =================================== -->
+
+        <section
+            class="space-y-6"
+            aria-labelledby="titulo-botones"
+        >
+
+            <div>
+
+                <h2
+                    id="titulo-botones"
+                    class="text-3xl font-bold text-white"
+                >
+                    1. Botones
+                </h2>
+
+                <p class="mt-2 text-[#DDD6FE]">
+
+                    Tres variantes para acciones principales,
+                    secundarias y de consulta.
+
+                </p>
+
+            </div>
+
+            <div class="flex flex-wrap gap-4 rounded-2xl border border-[#8B5CF6]/40 bg-[#2D1B4E] p-6 shadow-lg">
+
+                <!-- BOTÓN PRINCIPAL -->
+                <a
+                    href="index.html#inscripcion"
+                    class="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#A3E635] px-6 py-3 font-bold text-[#120B24] shadow-md transition-colors hover:bg-[#BEF264] focus-visible:ring-4 focus-visible:ring-[#C4B5FD] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2D1B4E] focus-visible:outline-none"
+                >
+                    Botón principal
+                </a>
+
+                <!-- BOTÓN SECUNDARIO -->
+                <a
+                    href="index.html#rutas"
+                    class="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#C4B5FD] px-6 py-3 font-bold text-[#120B24] shadow-md transition-colors hover:bg-[#DDD6FE] focus-visible:ring-4 focus-visible:ring-[#A3E635] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2D1B4E] focus-visible:outline-none"
+                >
+                    Botón secundario
+                </a>
+
+                <!-- BOTÓN DE CONTORNO -->
+                <a
+                    href="index.html"
+                    class="inline-flex min-h-12 items-center justify-center rounded-xl border-2 border-[#A3E635] bg-transparent px-6 py-3 font-bold text-[#A3E635] transition-colors hover:bg-[#A3E635] hover:text-[#120B24] focus-visible:ring-4 focus-visible:ring-[#C4B5FD] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2D1B4E] focus-visible:outline-none"
+                >
+                    Botón de contorno
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- ===================================
+             2. CARD
+             =================================== -->
+
+        <section
+            class="space-y-6"
+            aria-labelledby="titulo-cards"
+        >
+
+            <div>
+
+                <h2
+                    id="titulo-cards"
+                    class="text-3xl font-bold text-white"
+                >
+                    2. Card
+                </h2>
+
+                <p class="mt-2 text-[#DDD6FE]">
+
+                    Tarjeta de ejemplo de la ruta Luces del Centro.
+
+                </p>
+
+            </div>
+
+            <div class="max-w-3xl">
+
+                <article class="w-full overflow-hidden rounded-2xl border border-[#8B5CF6]/40 bg-[#2D1B4E] shadow-xl transition-[border-color,box-shadow] duration-300 hover:border-[#A3E635] hover:shadow-2xl">
+
+                    <img
+                        src="../img/rio y parques.jpg"
+                        alt="Imagen ilustrativa de un recorrido en bicicleta por Medellín"
+                        class="h-56 w-full object-cover sm:h-72"
+                        loading="lazy"
+                    >
+
+                    <div class="space-y-6 p-6 sm:p-8">
+
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+
+                            <span class="rounded-full border border-emerald-300/50 bg-emerald-300 px-4 py-1 text-sm font-bold text-[#120B24]">
+                                Nivel fácil
+                            </span>
+
+                            <span class="text-sm font-medium text-[#DDD6FE]">
+                                Jueves a sábado · 7:30 p. m.
+                            </span>
+
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-white sm:text-3xl">
+                            Luces del Centro
+                        </h3>
+
+                        <div class="space-y-4 border-y border-[#8B5CF6]/40 py-5">
+
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+
+                                <span class="text-sm text-[#DDD6FE]">
+                                    Distancia
+                                </span>
+
+                                <strong class="text-lg text-white">
+                                    10 km
+                                </strong>
+
+                            </div>
+
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+
+                                <span class="text-sm text-[#DDD6FE]">
+                                    Duración
+                                </span>
+
+                                <strong class="text-lg text-white">
+                                    2 h
+                                </strong>
+
+                            </div>
+
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+
+                                <span class="text-sm text-[#DDD6FE]">
+                                    Punto de encuentro
+                                </span>
+
+                                <strong class="text-right text-base text-white">
+                                    Sede Rueda Libre
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                        <div class="flex flex-wrap items-center justify-between gap-4">
+
+                            <div>
+
+                                <p class="text-sm text-[#DDD6FE]">
+                                    Precio por persona
+                                </p>
+
+                                <p class="text-3xl font-extrabold text-[#A3E635]">
+                                    $55.000
+                                </p>
+
+                            </div>
+
+                            <a
+                                href="index.html#inscripcion"
+                                class="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#A3E635] px-6 py-3 font-bold text-[#120B24] shadow-md transition-colors hover:bg-[#BEF264] focus-visible:ring-4 focus-visible:ring-[#C4B5FD] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2D1B4E] focus-visible:outline-none"
+                            >
+                                Inscríbete
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- ===================================
+             3. ALERTAS
+             =================================== -->
+
+        <section
+            class="space-y-6"
+            aria-labelledby="titulo-alertas"
+        >
+
+            <div>
+
+                <h2
+                    id="titulo-alertas"
+                    class="text-3xl font-bold text-white"
+                >
+                    3. Alertas
+                </h2>
+
+                <p class="mt-2 text-[#DDD6FE]">
+
+                    Mensajes informativos, de éxito y de advertencia.
+
+                </p>
+
+            </div>
+
+            <div class="space-y-4">
+
+                <!-- ALERTA INFORMATIVA -->
+                <div class="rounded-2xl border border-[#8B5CF6]/40 border-l-4 border-l-[#C4B5FD] bg-[#2D1B4E] p-5 shadow-lg">
+
+                    <h3 class="text-lg font-bold text-[#DDD6FE]">
+                        Información importante
+                    </h3>
+
+                    <p class="mt-2 leading-relaxed text-[#F5F3FF]">
+
+                        Los recorridos de Rueda Nocturna
+                        comienzan a las 7:30 p. m.
+
+                    </p>
+
+                </div>
+
+                <!-- ALERTA DE ÉXITO -->
+                <div
+                    role="status"
+                    class="rounded-2xl border border-[#A3E635]/40 border-l-4 border-l-[#A3E635] bg-[#253820] p-5 shadow-lg"
+                >
+
+                    <h3 class="text-lg font-bold text-[#D9F99D]">
+                        Operación exitosa
+                    </h3>
+
+                    <p class="mt-2 leading-relaxed text-[#F0FDF4]">
+
+                        Ejemplo de un mensaje que confirma
+                        que una acción se completó correctamente.
+
+                    </p>
+
+                </div>
+
+                <!-- ALERTA DE ADVERTENCIA -->
+                <div class="rounded-2xl border border-[#FCD34D]/40 border-l-4 border-l-[#FCD34D] bg-[#443026] p-5 shadow-lg">
+
+                    <h3 class="text-lg font-bold text-[#FDE68A]">
+                        Advertencia
+                    </h3>
+
+                    <p class="mt-2 leading-relaxed text-[#FEF3C7]">
+
+                        Recuerda llevar ropa cómoda,
+                        seguir las instrucciones del guía
+                        y utilizar los elementos reflectivos.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ===================================
+             4. INPUTS
+             =================================== -->
+
+        <section
+            class="space-y-6"
+            aria-labelledby="titulo-inputs"
+        >
+
+            <div>
+
+                <h2
+                    id="titulo-inputs"
+                    class="text-3xl font-bold text-white"
+                >
+                    4. Campos de formulario
+                </h2>
+
+                <p class="mt-2 text-[#DDD6FE]">
+
+                    Campos con etiquetas visibles,
+                    textos de ayuda y estados de foco.
+
+                </p>
+
+            </div>
+
+            <div class="max-w-3xl rounded-2xl border border-[#8B5CF6]/40 bg-[#2D1B4E] p-6 shadow-lg sm:p-8">
+
+                <div class="space-y-6">
+
+                    <!-- CORREO -->
+                    <div class="space-y-2">
+
+                        <label
+                            for="correo"
+                            class="block text-sm font-bold text-white"
+                        >
+                            Correo electrónico
+                        </label>
+
+                        <input
+                            type="email"
+                            id="correo"
+                            name="correo"
+                            placeholder="ejemplo@correo.com"
+                            autocomplete="email"
+                            aria-describedby="ayuda-correo"
+                            class="block w-full rounded-xl border border-[#A78BFA] bg-[#120B24] px-4 py-3 text-base text-white placeholder:text-[#DDD6FE] focus:border-[#A3E635] focus:ring-4 focus:ring-[#A3E635]/40 focus:outline-none"
+                            required
+                        >
+
+                        <p
+                            id="ayuda-correo"
+                            class="text-sm text-[#DDD6FE]"
+                        >
+
+                            Escribe un correo electrónico válido.
+
+                        </p>
+
+                    </div>
+
+                    <!-- CELULAR -->
+                    <div class="space-y-2">
+
+                        <label
+                            for="celular"
+                            class="block text-sm font-bold text-white"
+                        >
+                            Número de celular
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="celular"
+                            name="celular"
+                            placeholder="3001234567"
+                            inputmode="numeric"
+                            pattern="3[0-9]{9}"
+                            minlength="10"
+                            maxlength="10"
+                            autocomplete="tel-national"
+                            aria-describedby="ayuda-celular"
+                            class="block w-full rounded-xl border border-[#A78BFA] bg-[#120B24] px-4 py-3 text-base text-white placeholder:text-[#DDD6FE] focus:border-[#A3E635] focus:ring-4 focus:ring-[#A3E635]/40 focus:outline-none"
+                            required
+                        >
+
+                        <p
+                            id="ayuda-celular"
+                            class="text-sm text-[#DDD6FE]"
+                        >
+
+                            Ingresa 10 dígitos y comienza por 3.
+
+                        </p>
+
+                    </div>
+
+                    <p class="text-sm text-[#DDD6FE]">
+
+                        Estos campos muestran los estilos del kit.
+                        No registran información ni envían inscripciones.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="mt-16 border-t border-[#8B5CF6]/30 bg-[#120B24] px-6 py-8">
+
+        <div class="mx-auto max-w-6xl text-center text-sm text-[#DDD6FE]">
+
+            Rueda Libre · Kit de componentes de Rueda Nocturna · 2026
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

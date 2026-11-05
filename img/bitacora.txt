@@ -582,7 +582,99 @@ Resultado: El código de la versión 2.0 utiliza componentes de Bootstrap adapta
 Conclusión: Bootstrap resulta útil para crear estructuras y componentes reutilizables, mientras que el CSS personalizado 
 permite conservar la identidad visual del negocio. La combinación de ambas tecnologías es adecuada para mantener y ampliar Rueda Libre.
 
+MiniReto 1 (Semana 3). Prototipo de Rueda Nocturna con Tailwind CSS
+Se creó la carpeta nocturna/ y el archivo prototipo.html, donde se integró Tailwind CSS mediante Play CDN.
+Se desarrolló la sección principal de la campaña incluyendo la etiqueta Nuevo  Jueves a sábado, el título Rueda Nocturna, el subtítulo
+Descubre Medellín en bici cuando se encienden las luces, los indicadores 3 rutas y Desde $55.000, y el botón Inscríbete.
+Se implementó una identidad visual con Morado Noche #120B24, Morado Profundo #2D1B4E, Violeta #8B5CF6, Verde Neón #A3E635 y 
+Lavanda #DDD6FE.
+Se utilizaron exclusivamente clases de Tailwind para definir espaciados, colores, tamaños, tipografía y estados interactivos, 
+sin agregar CSS propio.
 
+Comparación Bootstrap vs. Tailwind
+
+Bootstrap — Semana 2:
+
+<a href="reservas.html" class="btn btn-primary btn-lg">
+    Reservar
+</a>
+
+Tailwind — Semana 3:
+
+<a href="#inscripcion"
+   class="rounded-xl bg-[#A3E635] px-8 py-4 font-bold text-[#120B24] hover:bg-[#BEF264]">
+    Inscríbete
+</a>
+
+Diferencia: Bootstrap proporciona componentes prediseñados que se personalizan, mientras que Tailwind permite construir cada 
+elemento combinando utilidades directamente en HTML.
+
+Resultado: Se desarrolló un prototipo con todos los elementos solicitados, un único h1 y una identidad visual nocturna basada en morado y verde.
+
+MiniReto 2 (Semana 3). Configuración de Tailwind CLI y componentes de botón
+Se configuró el proyecto dentro de nocturna/ mediante Node.js y npm, instalando tailwindcss y @tailwindcss/cli.
+Se creó el archivo src/input.css con la importación @import "tailwindcss"; y se configuró la generación automática de src/output.css.
+Se creó .gitignore para excluir node_modules/ del repositorio.
+Se ejecutó Tailwind CLI en modo observación mediante npm run dev, obteniendo el mensaje de compilación exitosa.
+Se desarrollaron tres variantes de botón mediante clases utilitarias:
+
+Principal: fondo Verde Neón, texto Morado Noche y efecto hover verde claro.
+Secundario: fondo Lavanda, texto Morado Noche y efecto hover.
+Contorno: borde Verde Neón, fondo transparente y cambio de color al pasar el mouse.
+
+Los botones incorporan estados hover y focus-visible mediante utilidades de Tailwind, manteniendo un anillo visible al navegar con teclado.
+
+Verificación de generación de clases
+Tailwind CLI analiza las clases utilizadas en los archivos HTML y genera las reglas necesarias en src/output.css.
+
+Resultado: Se configuró correctamente Tailwind CLI y se desarrollaron tres variantes de botones reutilizables con los colores de la campaña.
+
+Conclusión: La CLI facilita la generación de estilos a partir de las clases utilizadas, mientras que el enfoque utility-first permite crear 
+botones personalizados sin escribir reglas CSS independientes.
+
+MiniReto 3 (Semana 3). Creación de cards para las rutas de Rueda Nocturna
+En nocturna/index.html se creó la sección Nuestras rutas, incorporando tres cards organizadas verticalmente.
+Cada tarjeta contiene una imagen ilustrativa, nombre de la ruta, nivel de dificultad, distancia, duración, punto de encuentro, precio y 
+botón Inscríbete.
+Se utilizaron las rutas y tarifas establecidas para la campaña
+Las tres tarjetas mantienen la misma estructura y utilizan Morado Profundo para el fondo, Verde Neón para los precios y 
+Lavanda para la información secundaria.
+Las etiquetas identifican la dificultad mediante texto y color: verde para fácil, amarillo para medio y rosado para difícil.
+Se implementaron efectos hover que modifican el borde y la sombra sin desplazar el contenido.
+
+Resultado: Se desarrollaron tres cards con la misma estructura visual, información completa de cada recorrido y botones consistentes con el kit.
+
+Conclusión: Las utilidades de Tailwind permiten reutilizar patrones visuales y mantener coherencia entre tarjetas sin necesidad de crear 
+clases CSS propias.
+
+MiniReto 4 (semana 3). Kit de componentes de Rueda Nocturna
+Se creó el archivo nocturna/componentes.html, enlazado al CSS generado mediante Tailwind CLI.
+Se incorporaron las tres variantes de botón desarrolladas anteriormente y una card completa de la ruta «Luces del Centro».
+Se implementaron tres alertas:
+
+Información: fondo Morado Profundo, borde lateral Lavanda y mensaje informativo.
+Éxito: fondo verde oscuro, borde Verde Neón y atributo role="status".
+Advertencia: fondo marrón oscuro, borde amarillo y mensaje preventivo.
+También se crearon dos campos de formulario: correo electrónico y celular. Ambos incluyen etiquetas vinculadas mediante for e id, 
+textos de ayuda y estados de foco visibles.
+
+Reglas del kit
+
+Fondo principal - Morado Noche #120B24
+Cards y paneles - Morado Profundo #2D1B4E
+Botones principales - Verde Neón #A3E635
+Botones secundarios - Lavanda #C4B5FD
+Textos secundarios - Lavanda #DDD6FE
+Bordes - rounded-xl y rounded-2xl
+Espaciados - p-6, p-8, gap-4 y space-y-6
+Interacciones - hover y focus-visible
+
+Se mantuvo la accesibilidad mediante etiquetas visibles, contraste entre texto y fondo, y anillos de foco para navegación con teclado.
+
+Resultado: Se desarrolló la página del kit de componentes con botones, cards, alertas e inputs, conservando una identidad visual morada y verde.
+
+Conclusión: El kit permite establecer reglas visuales reutilizables para continuar construyendo la landing de Rueda Nocturna, 
+facilitando la consistencia entre componentes sin utilizar CSS personalizado.
 
 
 
