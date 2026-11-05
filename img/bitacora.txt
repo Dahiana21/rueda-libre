@@ -419,6 +419,105 @@ Color de los botones:Bootstrap utilizaba el amarillo `#ffc107`. Se personalizaro
 Espaciados: Una regla general del CSS propio interfería potencialmente con los márgenes de Bootstrap. 
 Se eliminó para controlar los espacios mediante utilidades como `mb-3` y `mb-4`.
 
+MiniReto 8: Migración completa a BootstrapMigración de la página Tarifas
+
+Se implementó la grilla de Bootstrap utilizando las clases `row`, `g-4`, `col-12` y `col-lg-6`, permitiendo organizar las 
+tablas de alquiler y recorridos en dos columnas desde pantallas grandes.
+
+Se conservaron los colores corporativos, precios, encabezados y estilos de las tablas. Además, se mantuvo una presentación 
+adaptable para dispositivos móviles.
+
+Migración de la página Reservas
+Se organizó el formulario y la información de contacto utilizando `col-md-8` y `col-md-4`, permitiendo una distribución 
+de ocho y cuatro columnas desde 768 px.
+
+También se organizaron los campos cortos mediante la grilla de Bootstrap, conservando las validaciones nativas de HTML 
+como `required`, `minlength`, `maxlength`, `pattern`, `min` y `max`.
+
+Limpieza y reorganización del CSS
+Se reorganizó el archivo `bootstrap/css/styles.css` para conservar los colores, fuentes, botones, tarjetas, tablas, formularios 
+y estados visuales.
+
+La distribución principal de las páginas pasó a depender de Bootstrap, reduciendo la necesidad de crear reglas personalizadas 
+para cada tamaño de pantalla.
+
+Se mantuvieron algunas reglas propias para el encabezado, pie de página y componentes específicos.
+
+Corrección de navegación
+Se identificó que los enlaces del Inicio Bootstrap dirigían a las páginas originales de la versión 1.5.
+Se corrigieron las rutas para que Inicio, Tarifas y Reservas naveguen dentro de la carpeta `bootstrap`.
+Se comprobó que los enlaces de las tres páginas funcionan correctamente.
+Comparativa: CSS propio frente a Bootstrap
+
+Aspecto | Versión 1.5 — CSS propio | Versión 2.0-beta — Bootstrap 
+
+Diseño responsive | Media queries y Grid personalizados | Grilla y utilidades Bootstrap 
+Distribución | Reglas CSS propias | Clases `container`, `row` y `col-*` 
+Espaciados | Márgenes y paddings en CSS | Utilidades como `g-4`, `mb-4` y `py-4` 
+Personalización | Control completo del diseño | Bootstrap combinado con CSS corporativo 
+Mantenimiento | Requiere revisar reglas propias | Facilita reutilizar clases 
+Líneas de CSS | Pendiente de medición histórica | Pendiente de medición final 
+Tiempo de desarrollo | Pendiente de registrar | Pendiente de registrar 
+
+Conflictos identificados y soluciones
+
+Conflicto 1 — Color de los títulos:Bootstrap aplicaba un verde diferente al definido en el manual de marca. 
+Se utilizó una clase personalizada para conservar el Verde Ruta `#1E7A4F`.
+
+Conflicto 2 — Color de los botones:Los botones de Bootstrap utilizaban un amarillo predeterminado. Se personalizaron 
+las variables CSS para aplicar el Naranja Pedal `#F39A2B`.
+
+Conflicto 3 — Espaciados:Algunas reglas generales del CSS original podían interferir con los márgenes de Bootstrap. 
+Se reorganizaron los estilos para aprovechar las clases de espaciado.
+
+Conflicto 4 — Distribución de Servicios:Las cuatro tarjetas se mostraban demasiado estrechas en una misma fila. Se reemplazó 
+su distribución por `row g-4` y `col-12 col-md-6`, mostrando dos tarjetas por fila desde 768 px.
+
+Conflicto 5 — Navegación:Los enlaces dirigían a las páginas de la versión 1.5. Se corrigieron las rutas relativas 
+para mantener la navegación dentro de Bootstrap.
+
+5. Ventajas y desventajas
+
+ Ventajas
+
+- Bootstrap facilita la creación de diseños responsive.
+- Permite reutilizar clases de distribución y espaciado.
+- Reduce la necesidad de programar algunas media queries.
+- Facilita mantener una estructura consistente entre páginas.
+- Agiliza la organización de tarjetas, tablas y formularios.
+
+Desventajas
+
+- Sus colores predeterminados no siempre coinciden con la identidad visual.
+- Puede ser necesario sobrescribir algunos estilos mediante CSS propio.
+- Las etiquetas HTML pueden contener numerosas clases.
+- El desarrollador debe conocer la grilla y los breakpoints de Bootstrap.
+
+
+7. Conclusión
+La migración de Rueda Libre a Bootstrap permitió simplificar la organización responsive de las páginas, especialmente 
+en las secciones que anteriormente dependían de distribuciones personalizadas con CSS Grid y Flexbox.
+
+Bootstrap ofreció ventajas para distribuir tarjetas, formularios y tablas utilizando clases reutilizables. 
+Sin embargo, fue necesario conservar CSS propio para mantener la identidad visual definida por el manual de marca.
+
+Se concluye que combinar Bootstrap para las distribuciones con CSS personalizado para la identidad visual es u
+na alternativa adecuada para Rueda Libre, ya que facilita el mantenimiento y permite conservar el diseño corporativo.
+
+Para determinar con precisión cuánto trabajo se redujo, es necesario completar las mediciones reales de 
+líneas de código y tiempo invertido.
+
+8. Evidencia y entrega
+
+Carpeta de la versión nueva:`bootstrap/`
+
+Archivos migrados:
+- `bootstrap/index.html`
+- `bootstrap/paginas/tarifas.html`
+- `bootstrap/paginas/reservas.html`
+- `bootstrap/css/styles.css`
+
+Archivo de pruebas de los MiniRetos anteriores:** `pruebas/catalogo-bootstrap.html`
 
 
 
