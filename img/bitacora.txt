@@ -389,6 +389,14 @@ Problema 4: Contenido apretado en pantallas pequeñas.
 Solución: Se organizaron las secciones en una sola columna para móviles y se utilizaron Grid y Flexbox para 
 distribuirlas en pantallas mayores.
 
+MiniReto 5. Introducción a Bootstrap: grillas
+Se creó la página independiente pruebas/catalogo-bootstrap.html y se implementó el catálogo de siete bicicletas utilizando 
+Bootstrap 5.3 por CDN, sin modificar la versión original de Rueda Libre.
+
+Se comprobó que las tarjetas se distribuyen en una, dos, tres y cuatro columnas según el ancho de pantalla.
+Clases utilizadas: container, row, g-4, col-12, col-sm-6, col-lg-4 y col-xl-3.
+Validación: Los archivos CSS y JavaScript de Bootstrap cargaron correctamente. Se verificó el comportamiento responsive a 360, 768, 1024 y 1280 px.
+
 
 
 
