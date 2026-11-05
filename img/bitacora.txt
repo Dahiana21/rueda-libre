@@ -676,8 +676,189 @@ Resultado: Se desarrolló la página del kit de componentes con botones, cards, 
 Conclusión: El kit permite establecer reglas visuales reutilizables para continuar construyendo la landing de Rueda Nocturna, 
 facilitando la consistencia entre componentes sin utilizar CSS personalizado.
 
+MiniReto 5 (semana 3)
+Se reorganizó nocturna/index.html para crear una landing con encabezado, sección principal, rutas, funcionamiento, inscripción y pie de página.
+El encabezado utiliza Flexbox para distribuir el logo, los enlaces de navegación y el botón «Inscríbete».
+La sección de rutas utiliza CSS Grid con tres tarjetas: Luces del Centro, Miradores de la Ciudad y Luna en Las Palmas.
+Se incorporó la sección ¿Cómo funciona? con cuatro pasos: elegir la ruta, inscribirse, recoger el equipo y realizar el recorrido.
+Se creó una franja de inscripción y se organizó el pie de página en tres bloques: información del negocio, navegación y enlaces a las otras versiones.
+Se eligió Grid para las rutas y los pasos, porque permite distribuir elementos repetidos en columnas y mantener espacios uniformes.
+Se eligió Flexbox para el encabezado y el pie, porque facilita alinear y distribuir grupos de elementos.
+Todas las secciones comparten el contenedor max-w-6xl mx-auto px-6.
 
+Resultado: Se estructuró la landing completa con etiquetas semánticas, enlaces de navegación internos y los componentes del kit.
 
+Conclusión: Combinar Flexbox y Grid permite organizar una página completa manteniendo un diseño consistente y fácil de adaptar a diferentes 
+pantallas.
 
+MiniReto 6 (Semana 3)
+Se utilizaron clases sin prefijo para definir el diseño móvil y los prefijos sm:, md: y lg: para modificar la distribución en pantallas 
+más grandes.
+En la sección de rutas se implementó grid-cols-1 sm:grid-cols-2 lg:grid-cols-3.
+Para los cuatro pasos de funcionamiento se utilizó grid-cols-1 sm:grid-cols-2 lg:grid-cols-4.
+El encabezado utiliza flex-col md:flex-row, mientras que los enlaces de navegación se ocultan en el celular mediante hidden md:flex. 
+El botón de inscripción permanece visible.
+También se ajustaron los tamaños de títulos, los espacios y el relleno de las secciones según el tamaño de pantalla.
 
+Tabla de comportamiento esperado y verificación
+360 px  1 columna   1 columna   Apilado, enlaces ocultos  Pendiente
 
+768 px  2 columnas  2 columnas  En fila  Pendiente
+
+1024 px  3 columnas  4 columnas  En fila  Pendiente
+
+1280 px  3 columnas  4 columnas  En fila  Pendiente
+
+Resultado: Se implementó un diseño mobile-first con cambios de columnas y tamaños de texto según los breakpoints.
+
+Conclusión: El enfoque mobile-first permite comenzar con una distribución sencilla para celulares y ampliar progresivamente el diseño para tablets y computadores.
+
+MiniReto 7 (Semana 3)
+Se configuró el archivo src/input.css mediante @theme, definiendo los colores oficiales de Rueda Libre:
+
+Verde Ruta: #1E7A4F.
+Naranja Pedal: #F39A2B.
+Azul Noche: #14213D.
+Crema: #FAF6EF.
+Gris Asfalto: #5B6470.
+Amarillo Farol: #FFD166.
+
+Se conservaron los colores complementarios de la campaña Rueda Nocturna: Morado Noche, Morado Profundo, Violeta Nocturno, Lavanda y Verde Neón.
+Se incorporaron Montserrat para títulos y Open Sans para los textos mediante Google Fonts y las utilidades font-titulos y font-textos.
+Se aplicaron variantes dark: a fondos, textos, tarjetas, bordes, alertas e inputs. El modo oscuro responde a la preferencia del sistema mediante prefers-color-scheme.
+
+Contraste WCAG calculado
+
+Crema sobre Azul Noche - 14,83:1 - Cumple
+Crema sobre Morado Noche - 17,74:1 - Cumple
+Lavanda sobre Morado Noche - 13,76:1 - Cumple
+Verde Neón sobre Morado Noche - 12,67:1 - Cumple
+Crema sobre Morado Profundo - 14,14:1 - Cumple
+Verde Ruta sobre Azul Noche - 3,01:1 - No cumple
+Verde Ruta sobre Crema - 4,93:1 - Cumple
+Gris Asfalto sobre Crema - 5,57:1 - Cumple
+Azul Noche sobre Amarillo Farol - 11,08:1 - Cumple
+
+Para evitar el problema de Verde Ruta sobre Azul Noche, se utilizaron textos Crema, Amarillo Farol o Lavanda sobre fondos oscuros.
+Estos cálculos corresponden a las combinaciones indicadas. La validación visual de todos los estados de la página debe confirmarse con DevTools y 
+un verificador de accesibilidad.
+
+Resultado: Se definió el tema de marca y se incorporaron clases para diferenciar el modo claro y el oscuro.
+
+Conclusión: Los colores personalizados y el uso de dark: permiten conservar la identidad de Rueda Libre y ofrecer una experiencia nocturna con mayor legibilidad.
+
+MiniReto 8 (Semana 3)
+
+Título: Refactorización del HTML y comparación entre Bootstrap y Tailwind CSS
+
+Objetivo: Mejorar la legibilidad del código mediante componentes reutilizables y justificar la elección del framework más adecuado para Rueda Libre.
+
+Actividades desarrolladas
+
+Se revisó el código HTML de la landing Rueda Nocturna y se identificó la repetición de clases de utilidad, especialmente en los botones.
+
+Para mejorar la organización se utilizó @layer components y @apply dentro del archivo src/input.css.
+
+Se crearon tres clases reutilizables:
+
+.btn-principal
+
+.btn-secundario
+
+.btn-contorno
+
+Estas clases conservan los estilos, colores y estados interactivos de los botones, pero reducen la cantidad de código repetido dentro del HTML.
+
+En la landing, el botón principal se utiliza cinco veces, el secundario una vez y el de contorno una vez.
+
+Compilación y medición de Tailwind
+
+Se ejecutó el comando npm run build, que utiliza Tailwind CLI con la opción --minify.
+
+La compilación finalizó correctamente y generó src/output.css.
+
+Resultado obtenido:
+
+Tamaño del archivo: 28.672 bytes.
+
+Tamaño equivalente: 28 KB.
+
+Archivo medido: nocturna/src/output.css.
+
+Medición de Bootstrap v2.0
+
+Se utilizó el panel Network de las herramientas de desarrollador del navegador para consultar el tamaño de los recursos cargados por Rueda Libre v2.0.
+
+Recurso
+
+Tamaño registrado
+
+Bootstrap CSS
+
+33,8 kB
+
+Bootstrap JavaScript
+
+25,2 kB
+
+Bootstrap Icons CSS
+
+14,4 kB
+
+CSS personalizado (styles.css)
+
+12,5 kB
+
+Total de estos recursos
+
+85,9 kB
+
+Los valores de Bootstrap se tomaron de la columna Size del navegador, mientras que los 28 KB de Tailwind corresponden al archivo minificado en disco. Estas cifras permiten documentar los recursos utilizados, aunque no representan una comparación idéntica de transferencia de red.
+
+La versión Bootstrap incluye también recursos de fuentes e imágenes, que no se sumaron a esta tabla.
+
+Comparación Bootstrap vs. Tailwind
+
+Criterio
+
+Bootstrap
+
+Tailwind CSS
+
+Curva de aprendizaje
+
+Fue más sencillo comenzar porque ofrece componentes prediseñados, como navbar, botones y modal
+
+Requirió aprender utilidades, breakpoints, configuración del tema y compilación
+
+Personalización
+
+Permitió adaptar colores y componentes mediante CSS adicional
+
+Facilitó crear una identidad visual propia con @theme y utilidades
+
+Tamaño final
+
+Los recursos CSS y JS principales de Bootstrap sumaron 59,0 kB según Network; con Icons y CSS propio, 85,9 kB
+
+El CSS minificado generado para Rueda Nocturna ocupó 28 KB en disco
+
+Casos de uso
+
+Adecuado para construir rápidamente interfaces y componentes convencionales
+
+Adecuado para campañas personalizadas y proyectos que necesitan un sistema visual propio
+
+Recomendación para Rueda Libre
+
+Se recomienda Tailwind CSS para la próxima versión del sitio Rueda Libre, porque ofrece mayor control sobre el diseño y permite mantener una identidad visual consistente mediante componentes reutilizables.
+
+Durante la Semana 2, Bootstrap permitió desarrollar rápidamente la navegación, las tarjetas y otros componentes. Sin embargo, para la campaña Rueda Nocturna, Tailwind facilitó la creación de una identidad personalizada, la adaptación responsive y la implementación del modo oscuro.
+
+Los resultados también muestran que el proyecto Tailwind generó un archivo CSS minificado de 28 KB, aunque sería necesario medir ambos sitios bajo las mismas condiciones de red para realizar una comparación definitiva de rendimiento.
+
+Conclusión
+
+La experiencia con ambos frameworks permitió comprender que Bootstrap destaca por la rapidez de desarrollo inicial, mientras que Tailwind ofrece mayor libertad de personalización.
+
+Para la evolución visual de Rueda Libre se recomienda Tailwind CSS, manteniendo buenas prácticas de reutilización, accesibilidad y optimización de recursos.
