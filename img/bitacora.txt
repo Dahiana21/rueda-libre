@@ -409,6 +409,16 @@ d-none d-md-block: oculta un elemento en celulares y lo muestra desde 768 px.
 Se utilizó la grilla de Bootstrap para organizar los cuatro beneficios. Las utilidades Flexbox permiten que la franja final cambie de vertical a horizontal 
 según el dispositivo.
 
+MiniReto 7. Migración de Inicio a Bootstrap 5
+Se integró Bootstrap mediante CDN y se reemplazaron las distribuciones propias de la portada, flota, rutas y beneficios por clases de Bootstrap. 
+Se conservaron los colores corporativos y las fuentes Montserrat y Open Sans.
+
+Conflictos encontrados: 
+Color de los títulos:Bootstrap utilizaba su verde predeterminado. Se implementó una clase propia para conservar el Verde Ruta `#1E7A4F`.
+Color de los botones:Bootstrap utilizaba el amarillo `#ffc107`. Se personalizaron las variables de los botones para aplicar el Naranja Pedal `#F39A2B`.
+Espaciados: Una regla general del CSS propio interfería potencialmente con los márgenes de Bootstrap. 
+Se eliminó para controlar los espacios mediante utilidades como `mb-3` y `mb-4`.
+
 
 
 
