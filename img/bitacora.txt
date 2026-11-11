@@ -748,117 +748,589 @@ Resultado: Se definió el tema de marca y se incorporaron clases para diferencia
 Conclusión: Los colores personalizados y el uso de dark: permiten conservar la identidad de Rueda Libre y ofrecer una experiencia nocturna con mayor legibilidad.
 
 MiniReto 8 (Semana 3)
+Se revisó el archivo `nocturna/index.html` para identificar clases repetidas en botones, etiquetas, campos de formulario y tarjetas.
+Se identificaron los botones como los componentes que más se beneficiarían de la reutilización de estilos.
+En el archivo `nocturna/src/input.css`, se utilizaron `@layer components` y `@apply` para crear tres clases reutilizables: btn-principal, btn-secundario y btn-contorno.
+Se reutilizaron estas clases en los botones de inscripción, navegación y selección de planes, reduciendo la cantidad de utilidades repetidas directamente en el HTML.
+Se conservaron las clases de Tailwind CSS en las tarjetas de rutas y demás secciones, manteniendo una estructura consistente sin crear componentes CSS adicionales.
+Se organizaron las clases según su función: distribución, espaciado, tipografía, colores y estados interactivos.
+Se conservaron los colores de marca, las tipografías personalizadas y las variantes dark: para los modos claro y oscuro.
+Se ejecutó npm run build para generar el archivo CSS minificado mediante Tailwind CLI.
+Se midió el tamaño de `src/output.css` desde PowerShell y se revisaron los tamaños de los archivos CSS y JavaScript de Bootstrap mediante DevTools, 
+en la pestaña Network.
+Se realizaron pruebas responsive en celular, tablet y escritorio.
 
-Título: Refactorización del HTML y comparación entre Bootstrap y Tailwind CSS
 
-Objetivo: Mejorar la legibilidad del código mediante componentes reutilizables y justificar la elección del framework más adecuado para Rueda Libre.
+Al revisar la versión actual de la landing, se identificaron las siguientes repeticiones:
 
-Actividades desarrolladas
+btn-principal - 9 
+btn-contorno - 3 
+btn-secundario - 0 
+Estilo repetido de campos de texto - 4 
+Estilo repetido de selectores - 3 
+Estructura de tarjetas Cómo funciona -  4 
+Estilo de etiquetas de sección - 4 
+Estilo de enlaces del menú principal - 4 
 
-Se revisó el código HTML de la landing Rueda Nocturna y se identificó la repetición de clases de utilidad, especialmente en los botones.
+Los botones representan una oportunidad importante para reutilizar estilos. Mediante `@apply`, sus propiedades se centralizaron en tres clases propias, 
+facilitando el mantenimiento y mejorando la legibilidad del HTML.
 
-Para mejorar la organización se utilizó @layer components y @apply dentro del archivo src/input.css.
+Implementación de @layer components y @apply. Se definieron tres clases reutilizables:
 
-Se crearon tres clases reutilizables:
+btn-principal: utilizada en acciones principales, especialmente botones de inscripción y selección de planes.
+btn-secundario: disponible para acciones secundarias, con estilos personalizados.
+btn-contorno: utilizada en botones alternativos, como Explorar rutas, Reserva tu bici y Limpiar formulario.
 
-.btn-principal
+También se definieron estilos para los estados `hover` y `focus-visible`, conservando el comportamiento visual en modo claro y oscuro.
+Se cumple el límite de tres clases propias con @apply, ya que los estados interactivos pertenecen a esas mismas clases.
 
-.btn-secundario
+Pruebas responsive
+Celular  375 px  La página se visualiza correctamente.  Correcto 
+Tablet  768 px  La página se adapta correctamente al ancho disponible.  Correcto 
+Escritorio  1440 px  La distribución se visualiza correctamente.  Correcto 
 
-.btn-contorno
+Las clases responsive de Tailwind CSS, como `sm:`, `md:` y `lg:`, permitieron adaptar la distribución de la landing a los tamaños de pantalla evaluados.
 
-Estas clases conservan los estilos, colores y estados interactivos de los botones, pero reducen la cantidad de código repetido dentro del HTML.
+Se analizaron combinaciones de colores correspondientes a la identidad visual de Rueda Nocturna.
+Color del texto: Lavanda `#DDD6FE` - Color del texto: Morado noche `#120B24` - Contraste calculado: 13,76:1  Cumple 
+Color del texto: Crema `#FAF6EF` - Color del texto: Morado profundo `#2D1B4E`- Contraste calculado: 14,14:1  Cumple 
+Color del texto: Verde neón `#A3E635` - Color del texto: Morado noche `#120B24`-  Contraste calculado: 12,67:1 Cumple 
+Color del texto: Morado noche `#120B24`-  Color del texto: Verde neón `#A3E635` - Contraste calculado: 12,67:1  Cumple 
 
-En la landing, el botón principal se utiliza cinco veces, el secundario una vez y el de contorno una vez.
+Las cuatro combinaciones evaluadas superan la relación mínima de contraste de 4,5:1 establecida por WCAG AA para texto de tamaño normal.
 
-Compilación y medición de Tailwind
+Medición del CSS minificado y recursos de Bootstrap
 
-Se ejecutó el comando npm run build, que utiliza Tailwind CLI con la opción --minify.
+Para optimizar el CSS de la landing se utilizó el comando:
 
-La compilación finalizó correctamente y generó src/output.css.
+npm run build
 
-Resultado obtenido:
+Este ejecuta Tailwind CLI con la opción --minify.
 
-Tamaño del archivo: 28.672 bytes.
+Posteriormente se consultó el tamaño del archivo CSS desde PowerShell:
 
-Tamaño equivalente: 28 KB.
+(Get-Item .\src\output.css).Length: 29.809 bytes, equivalentes a 29,11 KiB.
 
-Archivo medido: nocturna/src/output.css.
+En la versión Bootstrap 2.0 se utilizó la pestaña Network de Chrome DevTools para identificar los recursos cargados.
 
-Medición de Bootstrap v2.0
+Tailwind CSS — output.css - 29.809 bytes (29,11 KiB) 
+Bootstrap — bootstrap.min.css - 23,3 kB 
+Bootstrap — bootstrap.bundle.min.js - 21,5 kB 
+Bootstrap Icons — bootstrap-icons.min.css - 10,9 kB 
+CSS personalizado — styles.css - 12,9 kB 
 
-Se utilizó el panel Network de las herramientas de desarrollador del navegador para consultar el tamaño de los recursos cargados por Rueda Libre v2.0.
+La landing de Tailwind utiliza un archivo CSS minificado que contiene las utilidades generadas para el proyecto. 
+En cambio, la versión Bootstrap carga varios recursos, como el CSS del framework, JavaScript, iconos y estilos personalizados.
 
-Recurso
+Comparativa Bootstrap vs. Tailwind CSS
+ Criterio | Bootstrap | Tailwind CSS 
+Curva de aprendizaje | Fue más fácil al comienzo porque ofrece componentes prediseñados como navbar, cards y carrusel. | Requirió aprender las clases de utilidad, los puntos de ruptura y la configuración de Tailwind CLI. 
+Personalización | Permitió aplicar los colores de Rueda Libre, aunque fue necesario utilizar CSS propio para algunos componentes. | Facilitó definir los colores, tipografías y variantes de modo oscuro mediante `@theme`. 
+Tamaño final | La versión 2.0 utiliza archivos CSS, JavaScript, iconos y estilos personalizados. | El CSS minificado de la landing tuvo un tamaño de 29.809 bytes. 
+Casos de uso | Es útil para construir rápidamente sitios con componentes predefinidos e interacciones como carruseles. | Es adecuado para landing pages y proyectos que necesitan una identidad visual altamente personalizada. 
 
-Tamaño registrado
+Framework recomendado para Rueda Libre
 
-Bootstrap CSS
+Después de trabajar con ambos frameworks, recomiendo utilizar Tailwind CSS para la próxima versión visual de Rueda Libre.
 
-33,8 kB
+Bootstrap facilitó el desarrollo inicial de la versión 2.0 gracias a sus componentes prediseñados. Sin embargo, al trabajar 
+en Rueda Nocturna, Tailwind CSS permitió mayor libertad para personalizar colores, tipografías, botones, tarjetas y diseños responsive.
 
-Bootstrap JavaScript
+La configuración de @theme permitió mantener la identidad visual de la marca, mientras que @apply ayudó a reutilizar los 
+estilos de los botones y reducir la repetición de clases en el HTML.
 
-25,2 kB
+Además, Tailwind CSS permitió generar un archivo CSS minificado específico para la landing.
 
-Bootstrap Icons CSS
+La recomendación se basa principalmente en la flexibilidad visual y la experiencia de desarrollo. 
 
-14,4 kB
+Dificultades encontradas
+Durante el desarrollo se identificaron listas extensas de clases repetidas en distintos botones, lo cual dificultaba la lectura del HTML.
+También se presentaron advertencias en VS Code relacionadas con las directivas `@theme` y `@apply`, que inicialmente generaron dudas
+sobre el funcionamiento de Tailwind CSS.
 
-CSS personalizado (styles.css)
+Soluciones aplicadas
+Se agruparon los estilos de los botones en tres clases reutilizables mediante @layer components y @apply.
+Se conservaron las utilidades de Tailwind en las tarjetas, evitando la creación innecesaria de clases propias.
+Para comprobar el funcionamiento de Tailwind CSS, se ejecutó su CLI y se verificó que generara correctamente el archivo output.css.
 
-12,5 kB
+Finalmente, se optimizó el CSS mediante --minify y se realizaron las mediciones de tamaño correspondientes.
 
-Total de estos recursos
+Resultado final
+Se mejoró la organización del HTML de Rueda Nocturna mediante la reutilización de estilos y se mantuvieron las características 
+responsive de la landing.
+El archivo CSS minificado tuvo un tamaño de 29.809 bytes y las pruebas de visualización realizadas en celular, tablet y escritorio 
+fueron satisfactorias.
+Se comprobaron las combinaciones principales de contraste del modo oscuro y se elaboró una comparación técnica entre Bootstrap y 
+Tailwind CSS.
 
-85,9 kB
+Mini reto 9 (Semana 3)
+Se creó la sección de inscripción dentro del archivo `nocturna/index.html`, incluyendo un encabezado descriptivo y
+un formulario identificado mediante `id="formulario-inscripcion"`.
+Se organizó el formulario utilizando las etiquetas <form>, <fieldset> y <legend>, agrupando los datos personales, la información del 
+recorrido, la bicicleta propia y las condiciones de participación.
+Se incorporaron los campos obligatorios solicitados: nombre completo, correo electrónico, celular, ruta, día de salida, número de 
+acompañantes, nivel de experiencia, bicicleta propia y aceptación de condiciones.
+Se utilizaron controles adecuados para cada dato: input type="text", email, tel, number,radio, checkbox y listas desplegables <select>.
+Se asociaron las etiquetas <label> con sus controles mediante los atributos for e id, mejorando la accesibilidad y facilitando 
+la navegación.
+Se configuraron las validaciones nativas de HTML mediante required, minlength, pattern, title, min y max.
+Se aplicaron clases de Tailwind CSS como grid, grid-cols-1 y md:grid-cols-2 para organizar los campos en una columna en d
+ispositivos pequeños y dos columnas desde pantallas medianas.
+Se incorporaron variantes dark: y focus: para mantener la identidad visual de Rueda Nocturna y destacar los campos activos.
+Se agregaron los botones Validar inscripción y Limpiar formulario.
+Se implementó un mensaje de resultado mediante role="status" y aria-live="polite" para comunicar el resultado de la validación.
+Como mejora adicional, se incorporó un selector obligatorio de planes: Individual, Pareja y Grupo.
 
-Los valores de Bootstrap se tomaron de la columna Size del navegador, mientras que los 28 KB de Tailwind corresponden al archivo minificado en disco. Estas cifras permiten documentar los recursos utilizados, aunque no representan una comparación idéntica de transferencia de red.
 
-La versión Bootstrap incluye también recursos de fuentes e imágenes, que no se sumaron a esta tabla.
+Diseño responsive y accesibilidad
+El formulario se diseñó utilizando Tailwind CSS para adaptarse a diferentes tamaños de pantalla.
+En dispositivos móviles, los campos se distribuyen en una sola columna. Desde el punto de ruptura md,
+los campos cortos se organizan en dos columnas.
+Para mejorar la accesibilidad se utilizaron etiquetas asociadas a los campos, conjuntos de campos identificados con títulos, 
+validaciones HTML y estilos de enfoque visibles.
+También se incorporaron colores adaptados a los modos claro y oscuro, conservando la identidad visual de Rueda Nocturna mediante t
+onos morados, crema, lavanda y verde neón.
 
-Comparación Bootstrap vs. Tailwind
+Dificultades encontradas
+Durante el desarrollo, el campo adicional Selecciona tu plan presentaba diferencias visuales respecto a los demás controles del formulario.
+Inicialmente, el fondo, los bordes y el resaltado al recibir el foco no coincidían con el diseño establecido para Rueda Nocturna.
+Además, se identificó una inconsistencia entre el formulario original, que permite de cero a tres acompañantes, y el plan Grupo, 
+diseñado para cuatro a ocho participantes.
 
-Criterio
+Solución aplicada
+Se revisaron las clases de Tailwind CSS utilizadas en los campos del formulario y se ajustó el diseño del selector de planes para 
+mantener una apariencia más uniforme.
+También se trabajó en el resaltado de los bordes con el color verde neón, buscando mejorar la identificación del campo activo.
 
-Bootstrap
 
-Tailwind CSS
+Se definieron las siguientes comprobaciones para verificar el comportamiento del formulario:
+Formulario vacío - No permite continuar y señala los campos obligatorios 
+Nombre de menos de 3 caracteres - Impide continuar 
+Celular que no comienza por 3 - Impide continuar 
+Celular con menos o más de 10 dígitos - Impide continuar 
+Acompañantes fuera del rango 0 a 3 - Impide continuar 
+Formulario completo y válido - Muestra un mensaje de validación correcta 
+Navegación con teclado - Permite recorrer y completar los campos 
+Modo claro y oscuro - Conserva la legibilidad y el enfoque visible 
 
-Curva de aprendizaje
+Tiempo de desarrollo
+Tiempo establecido por el reto: 40 minutos.
+Tiempo estimado de desarrollo: 55 minutos.
+Diferencia: 15 minutos adicionales.
 
-Fue más sencillo comenzar porque ofrece componentes prediseñados, como navbar, botones y modal
 
-Requirió aprender utilidades, breakpoints, configuración del tema y compilación
+Mini reto 10 (Semana 3)
+Se agregó la opción Rueda Nocturna en la barra de navegación de las tres páginas de Bootstrap: bootstrap/index.html, bootstrap/paginas/tarifas.html y bootstrap/paginas/reservas.html.
+Se incorporó una cuarta diapositiva al carrusel de promociones de Bootstrap para presentar la campaña Rueda Nocturna, incluyendo su nombre, descripción, 
+horario y un botón para acceder a la landing.
+Se agregó el cuarto indicador del carrusel, permitiendo seleccionar directamente la promoción nocturna.
+En la landing desarrollada con Tailwind CSS, se configuró el logo de Rueda Libre como enlace de regreso al inicio de Bootstrap 2.0.
+Se incorporó el botón Reserva tu bici, que dirige a la página de reservas del sitio Bootstrap.
+Se revisaron y corrigieron las rutas relativas entre las carpetas bootstrap/ y nocturna/.
+Como mejora adicional, se agregaron enlaces para navegar entre las tres versiones del proyecto: Rueda Libre 1.5, Bootstrap 2.0 y Rueda Nocturna.
+Se compararon los colores y las tipografías utilizados en ambas versiones, comprobando que mantienen la identidad visual principal de Rueda Libre.
+Se revisaron los datos de contacto de los pies de página y se establecieron los mismos datos ficticios para el proyecto académico.
+Se realizaron pruebas locales de navegación y se corrigió el error que impedía acceder a determinadas páginas de Bootstrap.
 
-Personalización
 
-Permitió adaptar colores y componentes mediante CSS adicional
+Verificación de identidad visual
 
-Facilitó crear una identidad visual propia con @theme y utilidades
+Se comparó el archivo bootstrap/css/styles.css con las variables definidas mediante @theme en nocturna/src/input.css.
+Se comprobó que ambas versiones utilizan los mismos cinco colores principales:
 
-Tamaño final
+Verde Ruta  #1E7A4F - Coincide 
+Naranja Pedal  #F39A2B - Coincide 
+Azul Noche  #14213D - Coincide 
+Crema  #FAF6EF- Coincide 
+Gris Asfalto  #5B6470 - Coincide 
 
-Los recursos CSS y JS principales de Bootstrap sumaron 59,0 kB según Network; con Icons y CSS propio, 85,9 kB
+Bootstrap utiliza variables CSS como --bs-primary, --bs-body-bg y --bs-body-color, mientras que Tailwind CSS utiliza @theme para definir los colores personalizados.
 
-El CSS minificado generado para Rueda Nocturna ocupó 28 KB en disco
+Rueda Nocturna incorpora adicionalmente colores complementarios, como morado oscuro, violeta, lavanda y verde neón, para diferenciar la campaña sin perder 
+la identidad de Rueda Libre.
 
-Casos de uso
+Tipografías: Se verificó que ambos productos utilizan:
 
-Adecuado para construir rápidamente interfaces y componentes convencionales
+Montserrat: títulos y encabezados.
+Open Sans: párrafos, botones y textos generales.
 
-Adecuado para campañas personalizadas y proyectos que necesitan un sistema visual propio
+Verificación de datos de contacto: Se revisaron los pies de página de Bootstrap 2.0 y Rueda Nocturna para mantener una información de contacto consistente.
 
-Recomendación para Rueda Libre
+Dificultades encontradas
+Durante las pruebas de navegación, al seleccionar Versión Bootstrap o Reserva tu bici, el navegador mostraba el error `Cannot GET`.
+Inicialmente se revisaron los enlaces HTML y el funcionamiento del servidor local, pero las páginas continuaban sin abrir correctamente.
+Para identificar el problema se utilizaron comandos de PowerShell como Test-Path y Get-ChildItem, que permitieron comprobar la ubicación real de los archivos.
+Se encontró que la carpeta se llamaba `boostrap` en lugar de `bootstrap`, por lo que las rutas relativas apuntaban a una ubicación inexistente.
+También fue necesario revisar la navegación entre las tres versiones para asegurar que los enlaces llevaran a las páginas correspondientes.
 
-Se recomienda Tailwind CSS para la próxima versión del sitio Rueda Libre, porque ofrece mayor control sobre el diseño y permite mantener una identidad visual consistente mediante componentes reutilizables.
+Tiempo de desarrollo
 
-Durante la Semana 2, Bootstrap permitió desarrollar rápidamente la navegación, las tarjetas y otros componentes. Sin embargo, para la campaña Rueda Nocturna, Tailwind facilitó la creación de una identidad personalizada, la adaptación responsive y la implementación del modo oscuro.
+Tiempo establecido por el reto:40 minutos.
 
-Los resultados también muestran que el proyecto Tailwind generó un archivo CSS minificado de 28 KB, aunque sería necesario medir ambos sitios bajo las mismas condiciones de red para realizar una comparación definitiva de rendimiento.
+Tiempo estimado: una hora y 20 min.
+
+Resultado obtenido
+Se integró la landing Rueda Nocturna con el sitio Bootstrap 2.0 mediante enlaces de navegación, una cuarta diapositiva en el carrusel y 
+botones que permiten acceder al inicio y a la página de reservas.
+Se corrigieron los problemas de rutas relativas y se comprobó el funcionamiento de la navegación local entre las versiones.
+También se verificó la coincidencia de los colores principales y las tipografías de marca, y se unificaron los datos ficticios de contacto de ambos productos.
+
+Mini reto 11 (Semana 3)
+Se creó la sección Planes Rueda Nocturna dentro del archivo nocturna/index.html, identificada mediante id="planes".
+Se implementaron tres tarjetas correspondientes a los planes Individual, Pareja y Grupo, incluyendo precios, beneficios y botones para acceder al formulario 
+de inscripción.
+Se utilizó CSS Grid con las clases grid, grid-cols-1 y lg:grid-cols-3, logrando una distribución de una columna en dispositivos móviles y 
+tres columnas en pantallas grandes.
+Se aplicó Flexbox mediante las clases flex, flex-col, justify-between y gap-6 para organizar el contenido de cada tarjeta verticalmente y 
+mantener los botones en la parte inferior.
+Se utilizó h-full para que las tarjetas ocuparan toda la altura disponible dentro de la cuadrícula.
+Se implementaron propiedades del Box Model mediante p-6, border-2, border-4, rounded-2xl y gap-6, manteniendo rellenos y separaciones consistentes.
+Se destacó el plan Pareja mediante un borde más grueso, un fondo diferente y la etiqueta «★ Más elegido», sin modificar las dimensiones exteriores 
+de las demás tarjetas.
+Se utilizaron variantes dark: para adaptar fondos, textos y bordes al modo oscuro de Rueda Nocturna.
+Se reutilizó la clase btn-principal, definida previamente con @apply, para mantener el mismo estilo en los botones de los tres planes.
+Se conectaron los botones Elegir Individual, Elegir Pareja y Elegir Grupo con la sección de inscripción mediante el enlace #inscripcion.
+Se realizaron pruebas responsive y de modo oscuro para comprobar que las tarjetas conservaran una presentación adecuada.
+Se utilizó Chrome DevTools, en la sección Elements - Computed, para comprobar las medidas reales de las tres tarjetas.
+
+Aplicación de CSS Grid y Flexbox
+Se utilizó CSS Grid para organizar la distribución general de las tarjetas.
+La clase grid-cols-1 permite mostrar las tarjetas en una sola columna en dispositivos móviles, mientras que lg:grid-cols-3 establece tres columnas 
+desde el punto de ruptura lg.
+Para distribuir el contenido interno se utilizó Flexbox mediante flex, flex-col y justify-between.
+Esta combinación permite organizar los títulos, precios y beneficios, mientras que los botones de inscripción permanecen alineados en la parte inferior de las tarjetas.
+También se utilizó gap-6 para mantener una separación consistente entre los elementos.
+
+Plan destacado: Pareja
+El plan Pareja se identificó como Más elegido y recibió un tratamiento visual diferente.
+Se utilizó un borde de mayor grosor mediante border-4, un fondo blanco en modo claro y morado oscuro en modo oscuro, junto con una etiqueta de color 
+que permite identificarlo fácilmente.
+Las tarjetas Individual y Grupo conservaron sus bordes normales y el mismo relleno interno.
+El uso de estas diferencias visuales permitió destacar el plan Pareja sin alterar las dimensiones exteriores de las tarjetas.
+
+Pruebas realizadas en Chrome DevTools
+
+Para verificar la distribución, se utilizó Chrome DevTools en la pestaña Elements - Computed, seleccionando el elemento <article> correspondiente a cada plan.
+
+Se registraron las siguientes medidas:
+
+ Propiedad | Individual | Pareja | Grupo 
+Ancho exterior | 309,33 px | 309,34 px | 309,33 px 
+Alto exterior | 474,99 px | 474,99 px | 474,99 px 
+Padding | 24 px | 24 px | 24 px 
+Borde por lado | 1,6 px | 4 px | 1,6 px 
+Margen | 0 px | 0 px | 0 px 
+
+Las tres tarjetas presentan el mismo alto exterior y un ancho prácticamente idéntico, con diferencias mínimas de redondeo.
+También se comprobó que todas utilizan un padding de 24 px.
+El plan Pareja presenta un borde de 4 px, mientras que los planes Individual y Grupo registraron 1,6 px en DevTools.
+A pesar de esta diferencia, las tres tarjetas conservaron dimensiones exteriores equivalentes.
+Se cumplió el criterio de mantener el mismo ancho, altura y relleno interno en las tres tarjetas.
+
+Pruebas responsive y modo oscuro: Se comprobó el comportamiento de la sección en diferentes tamaños de pantalla.
+
+Prueba | Resultado | Estado 
+Distribución en escritorio | Tres tarjetas distribuidas en columnas. | Correcto 
+Altura de las tarjetas | Las tres presentan la misma altura exterior. | Correcto 
+Alineación de botones | Los botones permanecen alineados en la parte inferior. | Correcto 
+Distribución en celular | Una columna con tarjetas organizadas verticalmente. | Correcto 
+Desplazamiento horizontal | No se presenta desplazamiento horizontal. | Correcto 
+Plan Pareja destacado | Se identifica por su borde, fondo y etiqueta. | Correcto 
+Modo oscuro | Los textos, fondos y botones mantienen una presentación legible. | Correcto 
+
+Las pruebas funcionales y visuales fueron satisfactorias. La sección mantiene una distribución adecuada en escritorio y dispositivos móviles.
+
+Dificultades encontradas
+
+Durante la implementación, uno de los principales desafíos fue conseguir que las tres tarjetas tuvieran la misma altura y mantuvieran sus botones alineados, 
+a pesar de presentar cantidades diferentes de información.
+También fue necesario destacar el plan Pareja utilizando un borde más grueso y una etiqueta especial sin alterar la distribución general de la cuadrícula.
+Finalmente, se requirió revisar las dimensiones mediante DevTools para comprobar que el padding y los tamaños fueran consistentes.
+
+
+Tiempo de desarrollo
+
+Tiempo establecido por el reto: 45 minutos.
+
+Tiempo estimado:53 minutos.
+
+Se requirió tiempo adicional para organizar el contenido de las tarjetas, destacar visualmente el plan Pareja, adaptar el diseño a diferentes tamaños de pantalla y comprobar las dimensiones mediante Chrome DevTools.
+
+Se implementó correctamente la sección Planes Rueda Nocturna, presentando tres alternativas de participación con sus respectivos precios, beneficios y botones 
+de inscripción.
+La distribución se realizó mediante CSS Grid y Flexbox, garantizando una presentación adaptable a diferentes tamaños de pantalla.
+El plan Pareja se destacó como Más elegido mediante un borde de mayor grosor, un fondo diferente y una etiqueta identificativa.
+Las mediciones obtenidas en DevTools confirmaron que las tres tarjetas conservan dimensiones exteriores equivalentes y un relleno interno de 24 px.
+Se comprobó también el funcionamiento responsive, la alineación de botones y la presentación en modo oscuro.
+
+Mini reto 12 (Semana 3)
+Se revisó la integración entre el sitio Rueda Libre Bootstrap 2.0 y la landing Rueda Nocturna, verificando las rutas relativas 
+utilizadas para navegar entre ambos productos.
+Se identificó un problema con el nombre de la carpeta del sitio Bootstrap, que inicialmente aparecía como boostrap. 
+Se corrigió el nombre a bootstrap, solucionando las rutas locales.
+Se utilizó W3C Nu HTML Checker para revisar el código HTML e identificar errores relacionados con rutas de imágenes, atributos 
+de formularios y accesibilidad.
+Se realizó una revisión del archivo nocturna/index.html. La primera validación identificó dos errores relacionados con un espacio 
+en la ruta de una imagen y un valor incorrecto del atributo autocomplete.
+Se realizaron ajustes en el archivo bootstrap/index.html después de identificar nueve errores ocasionados por espacios sin codificar 
+en las rutas de imágenes.
+Se revisó el archivo bootstrap/paginas/reservas.html, donde el validador identificó dos errores: un valor no aceptado de autocomplete
+ en el campo de celular y el uso de aria-labelledby en un modal sin un rol ARIA compatible.
+Se corrigió el atributo de autocompletado del celular, utilizando autocomplete="tel" para conservar la compatibilidad con el navegador 
+y la validación W3C.
+Se ajustó el modal de políticas del formulario de reservas, incorporando role="dialog" y aria-modal="true" para describir adecuadamente 
+su función.
+Se revisó la sección de planes nocturnos utilizando Chrome DevTools, comprobando las dimensiones exteriores y el relleno interno de las 
+tres tarjetas.
+Se verificó visualmente la presentación responsive de las tarjetas, incluyendo la alineación de los botones y la distribución de los 
+elementos.
+Se inspeccionaron los estilos del modo oscuro en Chrome DevTools, identificando el fondo morado noche y el color crema utilizados en la 
+landing.
+Se prepararon las capturas necesarias para documentar el proyecto en las vistas de escritorio, celular y modo oscuro.
+Se creó el archivo README.md en la raíz del proyecto y se revisó la estructura requerida para documentar el ecosistema.
+Se identificó que el enlace publicado de Bootstrap todavía no funciona con la nueva ruta, debido posiblemente a que el cambio de nombre de la carpeta no se ha enviado a GitHub.
+
+Validación HTML con W3C
+Para comprobar la estructura HTML se utilizó la herramienta W3C Nu HTML Checker, seleccionando la opción Check by file upload.
+Inicialmente se intentó validar una URL local de Live Server, pero la herramienta presentó el mensaje Forbidden host, porque el servidor 
+de W3C no puede acceder al entorno local del computador.
+
+Se cambió al método de carga directa de archivos y se realizaron las siguientes revisiones.
+
+Validación de Rueda Nocturna
+Archivo:nocturna/index.html
+Errores identificados:2.
+Error 1: Una imagen tenía un espacio sin codificar en su ruta.
+Solución: Se reemplazó el espacio por %20 dentro del atributo src.
+Error 2: El campo del celular utilizaba autocomplete="tel-national", valor que el validador no aceptó en ese contexto.
+Solución: Se cambió el atributo por autocomplete="tel".
+Resultado: Se identificaron las correcciones necesarias. Queda por confirmar documentalmente el resultado final de una nueva 
+validación sin errores.
+
+Validación de Bootstrap 2.0
+Archivo:bootstrap/index.html
+Errores identificados: 9.
+Los errores correspondían a rutas de imágenes que contenían espacios sin codificar.
+Entre los archivos afectados se encontraban imágenes de la campaña nocturna, bicicletas de la flota y recorridos turísticos.
+Solución: Se sustituyeron los espacios de las rutas por %20 y se codificó el carácter especial de la ruta que contenía la letra ñ.
+De esta manera se conservaron los nombres originales de los archivos y se corrigieron las rutas utilizadas en HTML.
+Resultado: Se realizaron las correcciones y se reportó que el problema quedó resuelto.
+
+Validación de reservas Bootstrap
+Archivo: bootstrap/paginas/reservas.html
+Errores identificados:2.
+Error 1: El atributo autocomplete del campo de celular utilizaba un valor no aceptado.
+Solución: Se reemplazó `tel-national` por `tel`, conservando las restricciones de diez dígitos y el inicio por 3.
+Error 2: El modal de políticas utilizaba aria-labelledby sin un rol ARIA compatible.
+Solución: Se agregó role="dialog" y aria-modal="true" al contenedor del modal.
+Resultado: Se aplicaron las correcciones y se reportó que la actividad quedó lista.
+
+Resumen de validaciones
+
+| Página | Errores iniciales | Corrección |
+| Rueda Nocturna | 2 | Ajustes en ruta de imagen y autocomplete 
+| Bootstrap 2.0 | 9 | Corrección de rutas de imágenes 
+| Reservas Bootstrap | 2 | Ajustes en autocomplete y rol del modal 
+
+Total de errores detectados inicialmente: 13.
+
+Las correcciones permitieron mejorar la estructura del código y su compatibilidad con los estándares HTML.
+
+Verificación de accesibilidad
+
+Se revisaron los siguientes aspectos:
+
+- Uso de elementos semánticos como header, nav, main, section y footer.
+- Organización de títulos y subtítulos mediante encabezados HTML.
+- Textos alternativos para describir las imágenes.
+- Etiquetas asociadas a los campos de los formularios.
+- Validaciones y mensajes de error.
+- Atributos ARIA del modal de políticas.
+- Estilos de enfoque para elementos interactivos.
+- Legibilidad de los colores en modo claro y oscuro.
+
+El ajuste del modal permitió mejorar su descripción semántica para tecnologías de asistencia.
+
+Resultado: Se realizaron correcciones relacionadas con accesibilidad y estructura.
+
+Pruebas responsive
+Durante el desarrollo del proyecto se comprobaron diferentes tamaños de pantalla mediante Chrome DevTools.
+Se habían realizado pruebas de la landing a los siguientes anchos:
+
+| Dispositivo | Ancho probado | Resultado 
+| Celular | 375 px | Correcto 
+| Tablet | 768 px | Correcto 
+| Escritorio | 1440 px | Correcto 
+
+Las tarjetas de la sección de planes también fueron revisadas visualmente para comprobar su organización, distribución y alineación.
+
+Para el lanzamiento se establecieron como medidas finales de referencia 360 px, 768 px y 1280 px.
+
+Resultado: La landing mostró un comportamiento responsive adecuado en las pruebas realizadas. 
+
+Verificación del Box Model
+
+Se utilizó la pestaña Elements → Computed de Chrome DevTools para comprobar las medidas de las tarjetas de los planes Individual, 
+Pareja y Grupo.
+
+| Propiedad | Individual | Pareja | Grupo 
+| Ancho exterior | 309,33 px | 309,34 px | 309,33 px 
+| Alto exterior | 474,99 px | 474,99 px | 474,99 px 
+| Padding | 24 px | 24 px | 24 px 
+| Borde por lado | 1,6 px | 4 px | 1,6 px 
+
+Resultado:Las tarjetas conservaron dimensiones exteriores equivalentes y un relleno interno uniforme.
+
+El plan Pareja presentó un borde de mayor grosor para destacarlo como Más elegido, sin afectar la distribución general.
+
+Verificación del modo oscuro
+Se revisaron los estilos del modo oscuro de la landing Rueda Nocturna mediante Chrome DevTools.
+En el elemento inspeccionado se identificaron los siguientes valores:
+
+- Fondo: rgb(18, 11, 36), equivalente a #120B24 (morado noche).
+- Texto: rgb(250, 246, 239), equivalente a #FAF6EF (crema).
+- Tipografía: Open Sans.
+
+Estos colores forman parte de la identidad visual utilizada en la campaña nocturna.
+También se preparó una captura para documentar esta presentación en el README.
+Resultado: Se comprobaron los colores oscuros aplicados al elemento inspeccionado y se revisó visualmente la presentación de la landing.
+
+Recomendación técnica: Bootstrap vs. Tailwind CSS
+
+Durante el MiniReto 8 se compararon los dos frameworks utilizados en el ecosistema.
+Bootstrap permitió construir rápidamente el sitio web mediante componentes prediseñados, como el menú de navegación, el carrusel de 
+promociones, las tarjetas y los formularios.
+Tailwind CSS proporcionó mayor libertad para personalizar la landing Rueda Nocturna mediante clases de utilidad, 
+colores propios, tipografías, diseño responsive y variantes de modo oscuro.
+Además, se utilizaron clases reutilizables mediante @apply para mantener la coherencia de los botones.
+En la revisión anterior, el archivo output.css generado con Tailwind tenía un tamaño registrado de 29.809 bytes, aproximadamente
+29,11 KiB.
+
+Recomendación:Utilizar Tailwind CSS para futuras ampliaciones visuales de Rueda Nocturna, por su flexibilidad de personalización 
+y la posibilidad de mantener un sistema de diseño propio.
+
+Bootstrap continúa siendo una alternativa adecuada para construir interfaces rápidamente con componentes ya establecidos.
+
+Optimización y publicación del CSS
+
+La landing utiliza Tailwind CSS v4 mediante Tailwind CLI.
+Los estilos se generan a partir de nocturna/src/input.css y se guardan en nocturna/src/output.css.
+El proceso de compilación permite incorporar las clases utilizadas en el HTML y generar una versión optimizada del CSS.
+Último tamaño registrado: 29.809 bytes.
+
+Publicación en GitHub Pages
+El ecosistema Rueda Libre se encuentra organizado dentro de un mismo repositorio.
+
+Repositorio:
+
+https://github.com/Dahiana21/rueda-libre
+
+Sitio original:
+
+https://dahiana21.github.io/rueda-libre/
+
+Sitio Bootstrap 2.0:
+
+https://dahiana21.github.io/rueda-libre/bootstrap/index.html
+
+Landing Rueda Nocturna:
+
+https://dahiana21.github.io/rueda-libre/nocturna/index.html
+
+Estas son las direcciones previstas para la estructura definitiva del repositorio.
+Durante la revisión se detectó que el enlace de Bootstrap todavía no funcionaba con la nueva ruta bootstrap/index.html.
+Se identificó como posible causa que el cambio del nombre de la carpeta, realizado localmente, todavía no se había enviado a GitHub.
+
+Solución prevista:Completar las modificaciones pendientes, verificar los archivos con Git, realizar el commit de lanzamiento y ejecutar
+el push a la rama principal.
+
+Dificultades encontradas
+
+La primera dificultad consistió en intentar validar una página local mediante su dirección de Live Server, lo cual produjo el mensaje `Forbidden host`.
+
+Otra dificultad fue identificar y corregir los errores reportados por W3C relacionados con espacios en las rutas de las imágenes.
+
+También se presentaron errores en los atributos `autocomplete` de los formularios y en la configuración ARIA del modal de políticas.
+
+Adicionalmente, se detectó un problema con el nombre de la carpeta Bootstrap, ya que la estructura local y la publicada en GitHub todavía podían ser diferentes.
+
+Finalmente, se requirió revisar cuidadosamente las dimensiones de las tarjetas y comprender el funcionamiento de la pestaña Computed de DevTools.
+
+## 14. Soluciones aplicadas
+
+Para validar las páginas locales se utilizó la opción de carga de archivos del validador W3C.
+
+Se corrigieron las rutas de imágenes mediante la codificación de espacios como `%20`, evitando modificar innecesariamente los nombres de los archivos.
+
+En los campos de celular se utilizó `autocomplete="tel"` para eliminar los errores reportados.
+
+En el modal de políticas se incorporó un rol ARIA compatible con su funcionamiento.
+
+Para comprobar la distribución de los planes se utilizó Chrome DevTools y se registraron las medidas reales de los elementos.
+
+Se corrigió el nombre de la carpeta `boostrap` a `bootstrap` para establecer una estructura coherente con los enlaces internos.
+
+## 15. Tiempo de desarrollo
+
+**Tiempo límite del MiniReto 12:** No especificado en las instrucciones compartidas.
+
+**Tiempo real utilizado:** No registrado con cronómetro.
+
+El proceso de revisión se realizó en varias etapas, incluyendo validación HTML, corrección de errores, organización del README y preparación de la demostración.
+
+Para este reto no se establece un tiempo inventado como si fuera una medición real.
+
+### Registro de contrarrelojes anteriores
+
+| MiniReto | Tiempo establecido | Tiempo estimado |
+|---|---:|---:|
+| MiniReto 9 | 40 minutos | 48 minutos |
+| MiniReto 10 | 40 minutos | 47 minutos |
+| MiniReto 11 | 45 minutos | 53 minutos |
+
+Los tiempos mostrados son estimaciones retrospectivas y no mediciones verificadas mediante cronómetro.
+
+## 16. Resultados obtenidos
+
+Se avanzó en la preparación del ecosistema Rueda Libre para su entrega final.
+
+Se identificaron y corrigieron errores de estructura HTML en las páginas revisadas.
+
+Se comprobó el uso de estilos responsive y colores de modo oscuro en la landing.
+
+Se verificó mediante Chrome DevTools que las tres tarjetas de planes mantienen dimensiones exteriores equivalentes.
+
+Se creó el archivo README.md y se preparó la información necesaria para documentar el proyecto.
+
+También se organizó un guion de demostración que permite presentar el sitio Bootstrap, la landing, los planes y el formulario en un máximo de tres minutos.
+
+### Actividades pendientes para cerrar el lanzamiento
+
+- Confirmar los resultados finales sin errores del validador W3C.
+- Verificar los anchos exactos de 360, 768 y 1280 px en ambos productos.
+- Completar la revisión de teclado, contraste, enlaces y recursos.
+- Confirmar que el README incluya todo el contenido y muestre las capturas.
+- Generar y guardar la versión final minificada de `output.css`.
+- Realizar el commit y push del lanzamiento.
+- Verificar las URLs publicadas sin errores 404.
+- Ensayar la demostración con un cronómetro y registrar la retroalimentación.
+
+Aprendizaje
+Durante este reto comprendí que entregar un proyecto web no consiste únicamente en finalizar su diseño, sino también en asegurar que 
+esté correctamente estructurado, validado, documentado y publicado.
+Aprendí a utilizar W3C Nu HTML Checker para identificar errores que no siempre son visibles al navegar por una página.
+También reforcé mis conocimientos sobre rutas relativas, atributos de formularios, roles ARIA y accesibilidad.
+Utilicé Chrome DevTools para comprobar estilos aplicados, dimensiones reales de los elementos y comportamiento responsive.
+Además, comprendí la importancia del README.md como documento de presentación de un repositorio y de GitHub Pages como herramienta 
+para compartir un proyecto funcional.
+Finalmente, aprendí a organizar una demostración corta, enfocándome en las funcionalidades más importantes y en las decisiones técnicas 
+tomadas durante el desarrollo.
 
 Conclusión
+El MiniReto 12 permitió integrar y revisar los componentes desarrollados durante la Semana 3, consolidando el ecosistema Rueda Libre.
+El proyecto reúne un sitio web Bootstrap 2.0 y una landing Rueda Nocturna desarrollada con Tailwind CSS, con rutas nocturnas, planes 
+de participación, formulario validado y presentación responsive.
+La validación W3C permitió identificar errores y aplicar correcciones, mientras que Chrome DevTools facilitó la comprobación de 
+dimensiones, estilos y modo oscuro.
 
-La experiencia con ambos frameworks permitió comprender que Bootstrap destaca por la rapidez de desarrollo inicial, mientras que Tailwind ofrece mayor libertad de personalización.
 
-Para la evolución visual de Rueda Libre se recomienda Tailwind CSS, manteniendo buenas prácticas de reutilización, accesibilidad y optimización de recursos.
