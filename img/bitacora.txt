@@ -1241,8 +1241,6 @@ Estas son las direcciones previstas para la estructura definitiva del repositori
 Durante la revisión se detectó que el enlace de Bootstrap todavía no funcionaba con la nueva ruta bootstrap/index.html.
 Se identificó como posible causa que el cambio del nombre de la carpeta, realizado localmente, todavía no se había enviado a GitHub.
 
-Solución prevista:Completar las modificaciones pendientes, verificar los archivos con Git, realizar el commit de lanzamiento y ejecutar
-el push a la rama principal.
 
 Dificultades encontradas
 
@@ -1256,41 +1254,21 @@ Adicionalmente, se detectó un problema con el nombre de la carpeta Bootstrap, y
 
 Finalmente, se requirió revisar cuidadosamente las dimensiones de las tarjetas y comprender el funcionamiento de la pestaña Computed de DevTools.
 
-## 14. Soluciones aplicadas
+14. Soluciones aplicadas
 
 Para validar las páginas locales se utilizó la opción de carga de archivos del validador W3C.
 
-Se corrigieron las rutas de imágenes mediante la codificación de espacios como `%20`, evitando modificar innecesariamente los nombres de los archivos.
+Se corrigieron las rutas de imágenes mediante la codificación de espacios como %20, evitando modificar innecesariamente los nombres de los archivos.
 
-En los campos de celular se utilizó `autocomplete="tel"` para eliminar los errores reportados.
+En los campos de celular se utilizó autocomplete="tel" para eliminar los errores reportados.
 
 En el modal de políticas se incorporó un rol ARIA compatible con su funcionamiento.
 
 Para comprobar la distribución de los planes se utilizó Chrome DevTools y se registraron las medidas reales de los elementos.
 
-Se corrigió el nombre de la carpeta `boostrap` a `bootstrap` para establecer una estructura coherente con los enlaces internos.
+Se corrigió el nombre de la carpeta boostrap a bootstrap para establecer una estructura coherente con los enlaces internos.
 
-## 15. Tiempo de desarrollo
-
-**Tiempo límite del MiniReto 12:** No especificado en las instrucciones compartidas.
-
-**Tiempo real utilizado:** No registrado con cronómetro.
-
-El proceso de revisión se realizó en varias etapas, incluyendo validación HTML, corrección de errores, organización del README y preparación de la demostración.
-
-Para este reto no se establece un tiempo inventado como si fuera una medición real.
-
-### Registro de contrarrelojes anteriores
-
-| MiniReto | Tiempo establecido | Tiempo estimado |
-|---|---:|---:|
-| MiniReto 9 | 40 minutos | 48 minutos |
-| MiniReto 10 | 40 minutos | 47 minutos |
-| MiniReto 11 | 45 minutos | 53 minutos |
-
-Los tiempos mostrados son estimaciones retrospectivas y no mediciones verificadas mediante cronómetro.
-
-## 16. Resultados obtenidos
+16. Resultados obtenidos
 
 Se avanzó en la preparación del ecosistema Rueda Libre para su entrega final.
 
@@ -1302,9 +1280,8 @@ Se verificó mediante Chrome DevTools que las tres tarjetas de planes mantienen 
 
 Se creó el archivo README.md y se preparó la información necesaria para documentar el proyecto.
 
-También se organizó un guion de demostración que permite presentar el sitio Bootstrap, la landing, los planes y el formulario en un máximo de tres minutos.
 
-### Actividades pendientes para cerrar el lanzamiento
+Actividades pendientes para cerrar el lanzamiento
 
 - Confirmar los resultados finales sin errores del validador W3C.
 - Verificar los anchos exactos de 360, 768 y 1280 px en ambos productos.
